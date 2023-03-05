@@ -20,6 +20,7 @@
     </dependencies>
     <modules>
         <module>house</module>
+        <module>car</module>
         <module>members</module>
         <module>system</module>
         <module>wallet</module>
