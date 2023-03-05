@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>course.linkflower.link</groupId>
-        <artifactId>zenofsword</artifactId>
+        <artifactId>zenofsword.house</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>derrick-members-api</artifactId>
-    <description>成员中心-api</description>
+    <artifactId>zenofsword.house-api</artifactId>
+    <description>房屋管理-api</description>
     <version>1.0.0</version>
     <dependencies>
         <dependency>
@@ -134,42 +134,6 @@
             </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <forceTags>true</forceTags>
-                    <baseImage>${docker.baseImage}</baseImage>
-                    <volumes>${docker.volumes}</volumes>
-                    <env>
-                        <JAVA_OPTS>${docker.java.opts}</JAVA_OPTS>
-                    </env>
-                    <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar /${project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
         </plugins>
         <finalName>${project.artifactId}</finalName>
     </build>

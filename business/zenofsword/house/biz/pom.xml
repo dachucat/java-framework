@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>course.linkflower.link</groupId>
-        <artifactId>zenofsword</artifactId>
+        <artifactId>zenofsword.house</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>derrick-members-biz</artifactId>
-    <description>成员中心-biz</description>
+    <artifactId>zenofsword.house-biz</artifactId>
+    <description>房屋管理-biz</description>
     <version>1.0.0</version>
     <dependencies>
         <dependency>

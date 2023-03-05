@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>course.linkflower.link</groupId>
-        <artifactId>business</artifactId>
+        <artifactId>zenofsword</artifactId>
         <version>1.0.0</version>
     </parent>
     <version>1.0.0</version>
-    <artifactId>zenofsword</artifactId>
-    <description>独孤九剑</description>
+    <artifactId>zenofsword.house</artifactId>
+    <description>房屋管理</description>
     <packaging>pom</packaging>
     <dependencies>
         <dependency>
@@ -19,11 +19,8 @@
         </dependency>
     </dependencies>
     <modules>
-        <module>house</module>
-        <module>members</module>
-        <module>system</module>
-        <module>wallet</module>
-        <module>config</module>
-        <module>common</module>
+        <module>api</module>
+        <module>biz</module>
+        <module>admin</module>
     </modules>
 </project>
