@@ -22,5 +22,6 @@
         <module>api</module>
         <module>biz</module>
         <module>admin</module>
+        <module>common</module>
     </modules>
 </project>

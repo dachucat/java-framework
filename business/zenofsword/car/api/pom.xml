@@ -6,7 +6,7 @@
         <artifactId>zenofsword.car</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>zenofsword.house-api</artifactId>
+    <artifactId>zenofsword.car-api</artifactId>
     <description>车辆管理-api</description>
     <version>1.0.0</version>
     <dependencies>
