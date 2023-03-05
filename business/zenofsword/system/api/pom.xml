@@ -3,16 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>course.linkflower.link</groupId>
-        <artifactId>system</artifactId>
+        <artifactId>zenofsword.system</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>system-api</artifactId>
+    <artifactId>zenofsword.system-api</artifactId>
     <description>系统中心-api</description>
     <version>1.0.0</version>
     <dependencies>
         <dependency>
             <groupId>course.linkflower.link</groupId>
-            <artifactId>config</artifactId>
+            <artifactId>zenofsword-config</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>

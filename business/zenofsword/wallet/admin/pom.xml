@@ -6,8 +6,8 @@
         <artifactId>zenofsword.wallet</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>zenofsword.wallet-biz</artifactId>
-    <description>钱包中心-biz</description>
+    <artifactId>zenofsword.wallet-admin</artifactId>
+    <description>钱包中心-admin</description>
     <version>1.0.0</version>
     <dependencies>
         <dependency>
