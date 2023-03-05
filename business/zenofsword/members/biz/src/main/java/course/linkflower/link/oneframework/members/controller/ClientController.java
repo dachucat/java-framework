@@ -1,9 +1,7 @@
 package course.linkflower.link.oneframework.members.controller;
 
 import course.linkflower.link.oneframework.common.model.Result;
-import course.linkflower.link.oneframework.members.dto.base.IdDto;
 import course.linkflower.link.oneframework.members.service.ClientService;
-import course.linkflower.link.oneframework.members.vo.clientwallet.ClientWalletVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
