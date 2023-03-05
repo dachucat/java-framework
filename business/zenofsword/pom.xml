@@ -19,6 +19,7 @@
         </dependency>
     </dependencies>
     <modules>
+        <module>derrick-members/biz</module>
         <module>members</module>
         <module>system</module>
         <module>wallet</module>
