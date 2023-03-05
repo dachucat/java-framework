@@ -14,3 +14,8 @@
         port: 7006
         name: zenofsword.wallet-admin
         port: 7007
+##  4.car:
+        name:zenofsword.car-biz
+        port:7008
+        name:zenofsword.car-admin
+        port:7009
