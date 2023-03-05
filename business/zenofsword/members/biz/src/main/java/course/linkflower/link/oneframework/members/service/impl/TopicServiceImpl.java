@@ -1,6 +1,7 @@
 package course.linkflower.link.oneframework.members.service.impl;
 
-import course.linkflower.link.oneframework.common.consts.BaseErrorContst;
+
+import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.lang.Lang;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.members.dao.TopicMapper;

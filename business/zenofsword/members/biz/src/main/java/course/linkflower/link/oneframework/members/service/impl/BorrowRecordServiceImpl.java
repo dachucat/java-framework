@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.members.service.impl;
 
-import course.linkflower.link.oneframework.common.consts.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.PageModelResult;
 import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;

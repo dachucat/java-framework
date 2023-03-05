@@ -1,4 +1,4 @@
-package course.linkflower.link.oneframework.common.consts;
+package course.linkflower.link.oneframework.common.constant;
 
 public class BaseErrorContst {
     public final static int BaseErrorBase = 0;

@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.members.dto.topic;
 
-import course.linkflower.link.oneframework.common.consts.BaseErrorContst;
 import course.linkflower.link.oneframework.members.model.Topic;
 import lombok.Data;
 
