@@ -20,7 +20,6 @@
     </dependencies>
     <modules>
         <module>zenofsword</module>
-        <module>zenofsword/car/untitled</module>
         <module>zenofsword/car</module>
         <module>zenofsword/car/api</module>
         <module>zenofsword/car/biz</module>

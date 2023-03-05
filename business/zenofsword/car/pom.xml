@@ -8,7 +8,7 @@
     </parent>
     <version>1.0.0</version>
     <artifactId>zenofsword.car</artifactId>
-    <description>车</description>
+    <description>车辆管理</description>
     <packaging>pom</packaging>
     <dependencies>
         <dependency>
