@@ -20,9 +20,5 @@
     </dependencies>
     <modules>
         <module>zenofsword</module>
-        <module>zenofsword/car</module>
-        <module>zenofsword/car/api</module>
-        <module>zenofsword/car/biz</module>
-        <module>zenofsword/car/admin</module>
     </modules>
 </project>

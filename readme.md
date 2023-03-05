@@ -19,3 +19,8 @@
         port:7008
         name:zenofsword.car-admin
         port:7009
+## 5.house:
+        name:zenofsword.house-biz
+        port:7010
+        name:zenofsword.house-admin
+        port:7011
