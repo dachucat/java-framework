@@ -1,6 +1,6 @@
 server:
-  port: 7002
+  port: 7010
 
 spring:
   application:
-    name: user-center
+    name: zenofsword.house-biz
