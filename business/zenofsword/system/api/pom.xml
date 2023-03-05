@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>course.linkflower.link</groupId>
-        <artifactId>members</artifactId>
+        <artifactId>system</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>members-api</artifactId>
-    <description>成员中心-api</description>
+    <artifactId>system-api</artifactId>
+    <description>系统中心-api</description>
     <version>1.0.0</version>
     <dependencies>
         <dependency>
@@ -63,6 +63,8 @@
         </dependency>
     </dependencies>
     <build>
+        <plugins>
+        </plugins>
         <finalName>${project.artifactId}</finalName>
     </build>
 </project>
