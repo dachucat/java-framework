@@ -12,7 +12,12 @@ import course.linkflower.link.oneframework.house.dto.renthouseinfo.UpdateRentHou
 import course.linkflower.link.oneframework.house.vo.dictionary.DictionaryVo;
 import course.linkflower.link.oneframework.house.vo.renthouseinfo.RentHouseInfoVo;
 
+import java.util.List;
+
 public interface DictionaryService {
+
+//    Result<List<DictionaryVo>> listDictionaryByKey(String key);
+
     Result<DictionaryVo> addDictionary(AddDictionaryDto addDictionaryDto);
     Result deleteDictionary(DeleteDicitionaryDto deleteDicitionaryDto);
     Result<DictionaryVo> updateDictionary(UpdateDicitionaryDto updateDicitionaryDto);

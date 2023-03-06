@@ -14,4 +14,5 @@ public class Dictionary {
     private String type;
     private String key;
     private String value;
+    private Integer sortValue;
 }

@@ -2,6 +2,9 @@ package course.linkflower.link.oneframework.house.vo.renthouseinfo;
 
 import course.linkflower.link.oneframework.house.model.RentHouseInfo;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 @Data
 public class RentHouseInfoVo {
@@ -56,5 +59,31 @@ public class RentHouseInfoVo {
             address = r.getAddress();
         }
         return this;
+    }
+
+    public List<RentHouseInfoVo> loadFromList(Collection<RentHouseInfo> list) {
+        List<RentHouseInfoVo> ret = new ArrayList<>();
+        Map<Long, Boolean> dictIdMap = new HashMap<>();
+        for (RentHouseInfo l : list) {
+            if (l.getCommunityInfoId() != null) {
+                dictIdMap.put(l.getCommunityInfoId(), Boolean.TRUE);
+            }
+            if (l.getCommunityInfoId() != null) {
+                dictIdMap.put(l.getCommunityInfoId(), Boolean.TRUE);
+            }
+            if (l.getCommunityInfoId() != null) {
+                dictIdMap.put(l.getCommunityInfoId(), Boolean.TRUE);
+            }
+            if (l.getCommunityInfoId() != null) {
+                dictIdMap.put(l.getCommunityInfoId(), Boolean.TRUE);
+            }
+            if (l.getCommunityInfoId() != null) {
+                dictIdMap.put(l.getCommunityInfoId(), Boolean.TRUE);
+            }
+        }
+        
+
+
+        return ret;
     }
 }

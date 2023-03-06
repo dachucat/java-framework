@@ -17,4 +17,21 @@
     <update id="update" parameterType="course.linkflower.link.oneframework.house.model.Dictionary" useGeneratedKeys="true">
         update dictionary set `type`=#{type},`key`=#{key},`value` = #{value} where id = #{id}
     </update>
+
+    <select id="lastSortValueByKey" resultType="int">
+        select sort_value from dictionary where `key` = #{key} order by sort_value desc limit 1;
+    </select>
+
+    <select id="countByTypeKey" resultType="int">
+        select count(*) from dictionary where `type` = #{type}  and `key` = #{key};
+    </select>
+
+    <select id="countByTypeKeyId" resultType="int">
+        select count(*) from dictionary where `type` = #{type}  and `key` = #{key} and id != #{id};
+    </select>
+
+    <select id="listDictionaryByKey" resultType="course.linkflower.link.oneframework.house.model.Dictionary">
+        select * from dictionary where `key` = #{key} order by sort_value limit #{count}
+    </select>
+
 </mapper>
