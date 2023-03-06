@@ -1,11 +1,6 @@
 package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
-import course.linkflower.link.oneframework.house.dto.book.AddBookDto;
-import course.linkflower.link.oneframework.house.dto.book.UpdateBookDto;
-import course.linkflower.link.oneframework.house.dto.publisher.AddPublisherDto;
-import course.linkflower.link.oneframework.house.dto.publisher.UpdatePublisherDto;
-import course.linkflower.link.oneframework.house.model.Publisher;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

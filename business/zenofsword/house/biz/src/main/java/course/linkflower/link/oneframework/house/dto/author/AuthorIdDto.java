@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.dto.author;
 
-import course.linkflower.link.oneframework.house.model.Author;
 import lombok.Data;
 
 @Data

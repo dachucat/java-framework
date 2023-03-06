@@ -1,7 +1,5 @@
 package course.linkflower.link.oneframework.house.vo.clientwallet;
 
-import course.linkflower.link.oneframework.house.model.Client;
-import course.linkflower.link.oneframework.house.model.ClientWallet;
 import lombok.Data;
 
 import java.util.Date;

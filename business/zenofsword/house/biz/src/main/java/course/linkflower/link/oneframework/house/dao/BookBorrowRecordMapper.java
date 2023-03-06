@@ -1,9 +1,5 @@
 package course.linkflower.link.oneframework.house.dao;
 
-import course.linkflower.link.oneframework.house.model.Book;
-import course.linkflower.link.oneframework.house.model.BookBorrowRecord;
-import course.linkflower.link.oneframework.house.model.BookInfo;
-import course.linkflower.link.oneframework.house.model.BorrowRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

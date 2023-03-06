@@ -1,12 +1,10 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
 import course.linkflower.link.oneframework.house.dao.BookInfoMapper;
-import course.linkflower.link.oneframework.house.dao.BookMapper;
 import course.linkflower.link.oneframework.house.dto.bookInfo.AddBookInfoDto;
 import course.linkflower.link.oneframework.house.dto.bookInfo.DeleteBookInfoDto;
 import course.linkflower.link.oneframework.house.dto.bookInfo.SearchBookInfoDto;
 import course.linkflower.link.oneframework.house.dto.bookInfo.UpdateBookInfoDto;
-import course.linkflower.link.oneframework.house.model.BookInfo;
 import course.linkflower.link.oneframework.house.service.BookInfoService;
 import course.linkflower.link.oneframework.house.service.BookService;
 import course.linkflower.link.oneframework.house.vo.bookInfo.BookInfoVo;

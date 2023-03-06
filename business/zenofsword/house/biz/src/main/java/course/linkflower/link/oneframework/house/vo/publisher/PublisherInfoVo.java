@@ -1,7 +1,6 @@
 package course.linkflower.link.oneframework.house.vo.publisher;
 
 
-import course.linkflower.link.oneframework.house.model.Publisher;
 import lombok.Data;
 
 @Data

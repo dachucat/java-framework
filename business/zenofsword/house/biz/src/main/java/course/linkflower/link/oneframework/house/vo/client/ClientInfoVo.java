@@ -1,8 +1,6 @@
 package course.linkflower.link.oneframework.house.vo.client;
 
-import course.linkflower.link.oneframework.house.model.Client;
 import lombok.Data;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 @Data
 public class ClientInfoVo {

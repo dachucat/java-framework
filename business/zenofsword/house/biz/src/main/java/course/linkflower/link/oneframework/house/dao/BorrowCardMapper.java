@@ -2,8 +2,6 @@ package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.house.dto.borrowCard.BorrowCardDto;
-import course.linkflower.link.oneframework.house.model.BorrowCard;
-import course.linkflower.link.oneframework.house.vo.borrowcard.BorrowCardVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

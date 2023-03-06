@@ -2,10 +2,8 @@ package course.linkflower.link.oneframework.house.service.impl;
 
 import course.linkflower.link.oneframework.house.dao.AuthorMapper;
 import course.linkflower.link.oneframework.house.dto.author.AddAuthorDto;
-import course.linkflower.link.oneframework.house.dto.author.AuthorIdDto;
 import course.linkflower.link.oneframework.house.dto.author.UpdateAuthorDto;
 import course.linkflower.link.oneframework.house.dto.base.IdDto;
-import course.linkflower.link.oneframework.house.model.Author;
 import course.linkflower.link.oneframework.house.service.AuthorService;
 import course.linkflower.link.oneframework.house.vo.author.AuthorVo;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
-import course.linkflower.link.oneframework.house.model.ThirdAuth;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper

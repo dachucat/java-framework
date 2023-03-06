@@ -4,7 +4,6 @@ package course.linkflower.link.oneframework.house.controller;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dto.book.*;
 
-import course.linkflower.link.oneframework.house.model.Book;
 import course.linkflower.link.oneframework.house.service.BookService;
 
 import course.linkflower.link.oneframework.house.vo.book.BookVo;
