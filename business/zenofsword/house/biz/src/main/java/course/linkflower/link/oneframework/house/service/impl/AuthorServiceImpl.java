@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
-import course.linkflower.link.oneframework.house.dao.AuthorMapper;
 import course.linkflower.link.oneframework.house.dto.author.AddAuthorDto;
 import course.linkflower.link.oneframework.house.dto.author.UpdateAuthorDto;
 import course.linkflower.link.oneframework.house.dto.base.IdDto;
