@@ -3,4 +3,4 @@ server:
 
 spring:
   application:
-    name: zenofsword.car-admin
+    name: zenofsword.car
