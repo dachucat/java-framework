@@ -33,7 +33,7 @@ public class PictureServiceImpl implements PictureService {
     @Override
     public Result<PictureVo> updatePicture(UpdatePictureDto updatePictureDto) {
         Picture picture = updatePictureDto.toModel();
-        pictureMapper.save(picture);
+        pictureMapper.update(picture);
         return Result.succeed(new PictureVo().loadFrom(picture));
     }
 

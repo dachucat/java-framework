@@ -13,6 +13,7 @@ import course.linkflower.link.oneframework.house.vo.dictionary.DictionaryVo;
 import course.linkflower.link.oneframework.house.vo.renthouseinfo.RentHouseInfoVo;
 
 public interface DictionaryService {
+
     Result<DictionaryVo> addDictionary(AddDictionaryDto addDictionaryDto);
     Result deleteDictionary(DeleteDicitionaryDto deleteDicitionaryDto);
     Result<DictionaryVo> updateDictionary(UpdateDicitionaryDto updateDicitionaryDto);

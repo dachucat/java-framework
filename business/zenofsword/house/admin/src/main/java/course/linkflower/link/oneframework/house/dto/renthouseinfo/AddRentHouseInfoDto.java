@@ -2,6 +2,7 @@ package course.linkflower.link.oneframework.house.dto.renthouseinfo;
 
 import course.linkflower.link.oneframework.house.model.RentHouseInfo;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 @Data
 public class AddRentHouseInfoDto {
@@ -30,29 +31,31 @@ public class AddRentHouseInfoDto {
 
     public RentHouseInfo toModel(){
         RentHouseInfo r = new RentHouseInfo();
-        r.setClientId(Long.parseLong(clientId));
-        if (agentId!=null){
+        if (!StringUtils.isEmpty(clientId)) {
+            r.setClientId(Long.parseLong(clientId));
+        }
+        if (!StringUtils.isEmpty(agentId)) {
             r.setAgentId(Long.parseLong(agentId));
         }
-        if (communityInfoId!=null){
+        if (!StringUtils.isEmpty(communityInfoId)) {
             r.setCommunityInfoId(Long.parseLong(communityInfoId));
         }
-        if (decorateTypeId != null){
+        if (!StringUtils.isEmpty(depositTypeId)) {
             r.setDepositTypeId(Long.parseLong(depositTypeId));
         }
-        if (commissionId!=null){
+        if (!StringUtils.isEmpty(commissionId)) {
             r.setCommissionId(Long.parseLong(commissionId));
         }
-        if (rentHouseTypeId!=null){
+        if (!StringUtils.isEmpty(rentHouseTypeId)) {
             r.setRentHouseTypeId(Long.parseLong(rentHouseTypeId));
         }
-        if (decorateTypeId!=null){
+        if (!StringUtils.isEmpty(decorateTypeId)) {
             r.setDecorateTypeId(Long.parseLong(decorateTypeId));
         }
-        if (orientationId!=null){
+        if (!StringUtils.isEmpty(orientationId)) {
             r.setOrientationId(Long.parseLong(orientationId));
         }
-        if (storeyId != null){
+        if (!StringUtils.isEmpty(storeyId)) {
             r.setStoreyId(Long.parseLong(storeyId));
         }
         r.setPropertyPrice(propertyPrice);

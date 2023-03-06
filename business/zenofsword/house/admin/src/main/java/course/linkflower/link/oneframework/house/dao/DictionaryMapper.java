@@ -11,4 +11,6 @@ public interface DictionaryMapper {
     int delete(@Param("id") long id);
     int update(Dictionary dictionary);
     Dictionary getDictionaryById(@Param("id") long id);
+
+    int lastSortValueByKey(@Param("key") String key);
 }
