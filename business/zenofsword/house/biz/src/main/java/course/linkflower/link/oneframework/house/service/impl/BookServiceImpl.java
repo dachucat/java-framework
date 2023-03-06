@@ -3,8 +3,12 @@ package course.linkflower.link.oneframework.house.service.impl;
 import course.linkflower.link.oneframework.common.lang.Lang;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.consts.MemberErrorContst;
+import course.linkflower.link.oneframework.house.dao.BookInfoMapper;
+import course.linkflower.link.oneframework.house.dao.BookMapper;
+import course.linkflower.link.oneframework.house.dao.BookShelfMapper;
 import course.linkflower.link.oneframework.house.dto.book.*;
 
+import course.linkflower.link.oneframework.house.service.BookService;
 import course.linkflower.link.oneframework.house.vo.book.BookVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
