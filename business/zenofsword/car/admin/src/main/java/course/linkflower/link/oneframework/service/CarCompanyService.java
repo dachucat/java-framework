@@ -12,4 +12,6 @@ public interface CarCompanyService {
     Result<CarCompanyVo> update(CarCompanyDto carCompanyDto);
 
     Result deleteById(IdDto idDto);
+
+    Result<CarCompanyVo> getCarCompanyById(IdDto idDto);
 }

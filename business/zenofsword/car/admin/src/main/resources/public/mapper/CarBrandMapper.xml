@@ -21,7 +21,7 @@
     </select>
 
     <select id="listNameByCarCompanyId" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandVo">
-        select name from car_brand where car_company_id=#{id}
+        select name from car_brand where car_company_id=#{id} limit #{DefaultMaxCountLimit}
     </select>
 
     <select id="getNameById" resultType="String">

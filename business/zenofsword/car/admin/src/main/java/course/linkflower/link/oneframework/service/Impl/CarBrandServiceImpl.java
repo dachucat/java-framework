@@ -1,6 +1,7 @@
 package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
+import course.linkflower.link.oneframework.common.constant.DbConstant;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarBrandMapper;
@@ -40,7 +41,7 @@ public class CarBrandServiceImpl implements CarBrandService {
 
     @Override
     public Result<List<CarBrandVo>> listNameByCarCompanyId(IdDto idDto) {
-        return Result.succeed(carBrandMapper.listNameByCarCompanyId(Long.parseLong(idDto.getId())));
+        return Result.succeed(carBrandMapper.listNameByCarCompanyId(Long.parseLong(idDto.getId()), DbConstant.DefaultMaxCountLimit));
     }
 
     @Override

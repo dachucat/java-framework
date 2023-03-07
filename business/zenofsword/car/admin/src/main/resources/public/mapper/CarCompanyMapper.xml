@@ -18,4 +18,16 @@
     <delete id="deleteById">
         delete from car_company where id=#{id}
     </delete>
+
+    <select id="countNameDiffId" resultType="int">
+        select  count(*)  from car_company where name=#{name} and id!=#{id}
+    </select>
+
+    <select id="countName" resultType="int">
+        select  count(*)  from car_company where name=#{name}
+    </select>
+
+    <select id="getCarCompanyById" resultType="course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo">
+        select * from car_company where id=#{id} limit 1
+    </select>
 </mapper>

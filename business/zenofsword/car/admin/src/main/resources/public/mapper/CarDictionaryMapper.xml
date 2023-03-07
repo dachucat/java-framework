@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="course.linkflower.link.oneframework.dao.CarDictionaryMapper">
+    <select id="countTypeValue" resultType="int">
+        select count(*) from car_dictionary where type=#{type} and value=#{value}
+    </select>
+
+    <insert id="add" parameterType="course.linkflower.link.oneframework.model.CarDictionary" useGeneratedKeys="true" keyProperty="id">
+        insert into car_dictionary(value, `key`, type, ordering) values (#{value},#{key},#{type},#{ordering})
+    </insert>
+
+    <select id="getCarDictById" resultType="course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryVo">
+        select * from car_dictionary where id=#{id}
+    </select>
+
+    <select id="lastOrderingByType" resultType="Integer">
+        select ordering from car_dictionary where type=#{type} order by ordering desc limit 1
+    </select>
+</mapper>

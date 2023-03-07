@@ -15,6 +15,7 @@ public class CarCompanyDto {
     public CarCompany toModel(CarCompanyDto carCompanyDto) {
         CarCompany carCompany=new CarCompany();
         carCompany.setAddress(address);
+        carCompany.setId(Long.valueOf(id));
         carCompany.setEmail(email);
         carCompany.setIcon(icon);
         carCompany.setName(name);

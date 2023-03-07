@@ -18,7 +18,7 @@ public interface CarBrandMapper extends SuperMapper<CarBrandMapper> {
 
     CarBrandVo getCarBrandById(@Param("id") long id);
 
-    List<CarBrandVo> listNameByCarCompanyId(@Param("id") long id);
+    List<CarBrandVo> listNameByCarCompanyId(@Param("id") long id,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
 
     int countCompanyIdBrandName(@Param("carCompanyId") long carCompanyId,@Param("name") String name);
 

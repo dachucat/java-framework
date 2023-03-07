@@ -13,4 +13,8 @@ public interface CarCompanyMapper extends SuperMapper<CarCompanyMapper> {
     int update(CarCompany carCompany);
 
     CarCompanyVo getCarCompanyById(@Param("id") long id);
+
+    int countName(@Param("name")String name);
+
+    int countNameDiffId(@Param("name") String name,@Param("id") long id);
 }

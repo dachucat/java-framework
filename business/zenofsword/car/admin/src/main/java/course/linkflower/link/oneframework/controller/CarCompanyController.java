@@ -35,4 +35,9 @@ public class CarCompanyController {
     public Result deleteById(@RequestBody IdDto idDto){
         return carCompanyService.deleteById(idDto);
     }
+
+    @PostMapping("/getCarCompanyById")
+    public Result<CarCompanyVo> getCarCompanyById(@RequestBody IdDto idDto){
+        return carCompanyService.getCarCompanyById(idDto);
+    }
 }
