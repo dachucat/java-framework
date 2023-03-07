@@ -11,7 +11,7 @@
         update car_company set name=#{name}, address=#{address}, email=#{email}, phone=#{phone}, icon=#{icon} where id=#{id}
     </update>
     
-    <select id="getCarCompanyById" resultType="course.linkflower.link.oneframework.vo.carcompany.CarCompanyNoIdVo">
+    <select id="getCarCompanyById" resultType="course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo">
         select * from car_company where id=#{id}
     </select>
 

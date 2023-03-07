@@ -5,14 +5,16 @@ import lombok.Data;
 
 @Data
 
-public class CarCompanyNoIdVo {
+public class CarCompanyVo {
+    private String id;
     private String name;
     private String address;
     private String email;
     private String phone;
     private String icon;
 
-    public CarCompanyNoIdVo loadFrom(CarCompany carCompany) {
+    public CarCompanyVo loadFrom(CarCompany carCompany) {
+        id=String.valueOf(carCompany.getId());
         name=carCompany.getName();
         address=carCompany.getAddress();
         email=carCompany.getEmail();

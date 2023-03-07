@@ -2,7 +2,7 @@ package course.linkflower.link.oneframework.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarBrand;
-import course.linkflower.link.oneframework.vo.carbrand.CarBrandNoIdVo;
+import course.linkflower.link.oneframework.vo.carbrand.CarBrandVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,16 +16,12 @@ public interface CarBrandMapper extends SuperMapper<CarBrandMapper> {
 
     int update(CarBrand carBrand);
 
-    CarBrandNoIdVo getCarBrandById(@Param("id") long id);
+    CarBrandVo getCarBrandById(@Param("id") long id);
 
-    List<CarBrandNoIdVo> listNameByCarCompanyId(@Param("id") long id);
+    List<CarBrandVo> listNameByCarCompanyId(@Param("id") long id);
 
-    int countSameIcon(@Param("icon") String icon);
+    int countCompanyIdBrandName(@Param("carCompanyId") long carCompanyId,@Param("name") String name);
 
-
-    long getIdByIcon(@Param("icon") String icon);
-
-    String getNameById(@Param("id") long id);
-
-    long getCarCompanyIdById(@Param("id") long id);
+    int countCompanyIdBrandNamediffId(@Param("carCompanyId")long carCompanyId, @Param("name") String name,
+                                      @Param("id") long id);
 }

@@ -4,14 +4,15 @@ import course.linkflower.link.oneframework.model.CarCompany;
 import lombok.Data;
 
 @Data
-public class CarCompanyNoIdDto {
+public class CarCompanyDto {
+    private String id;
     private String name;
     private String address;
     private String email;
     private String phone;
     private String icon;
 
-    public CarCompany toModel(CarCompanyNoIdDto carCompanyNoIdDto) {
+    public CarCompany toModel(CarCompanyDto carCompanyDto) {
         CarCompany carCompany=new CarCompany();
         carCompany.setAddress(address);
         carCompany.setEmail(email);

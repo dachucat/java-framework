@@ -130,12 +130,5 @@ CREATE TABLE `used_car_photo` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `car_pattern` (
-  `id` bigint unsigned NOT NULL,
-  `car_pattern` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车型(是奥迪的x3?宝马的q5?)',
-  `car_brand_id` bigint unsigned NOT NULL,
-  `time_pattern` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '年份款式（如2020款）',
-  `pattern_car_dict_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '款式key（运动？时尚？）',
-  KEY `car_pattern_car_brand_id_IDX` (`car_brand_id`,`car_pattern`,`time_pattern`,`pattern_car_dict_key`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='车的款式';
+
 

@@ -4,12 +4,14 @@ import course.linkflower.link.oneframework.model.CarBrand;
 import lombok.Data;
 
 @Data
-public class CarBrandNoIdVo {
+public class CarBrandVo {
+    private String id;
     private String icon;
     private String name;
     private String carCompanyId;
 
-    public CarBrandNoIdVo loadFrom(CarBrand carBrand) {
+    public CarBrandVo loadFrom(CarBrand carBrand) {
+        id=String.valueOf(carBrand.getId());
         icon=carBrand.getIcon();
         name=carBrand.getName();
         carCompanyId=String.valueOf(carBrand.getCarCompanyId());

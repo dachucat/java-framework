@@ -11,8 +11,8 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("car_brand")
 public class CarBrand {
-    private long id;
+    private Long id;
     private String icon;
     private String name;
-    private long carCompanyId;
+    private Long carCompanyId;
 }

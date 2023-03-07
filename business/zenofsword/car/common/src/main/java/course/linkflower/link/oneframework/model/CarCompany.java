@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("car_company")
 public class CarCompany {
-    private long id;
+    private Long id;
     private String name;
     private String address;
     private String email;

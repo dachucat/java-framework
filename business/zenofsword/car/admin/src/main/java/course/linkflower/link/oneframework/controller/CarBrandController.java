@@ -5,7 +5,7 @@ import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandDto;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandNoIdDto;
 import course.linkflower.link.oneframework.service.CarBrandService;
-import course.linkflower.link.oneframework.vo.carbrand.CarBrandNoIdVo;
+import course.linkflower.link.oneframework.vo.carbrand.CarBrandVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -26,7 +26,7 @@ public class CarBrandController {
     private CarBrandService carBrandService;
 
     @PostMapping("/add")
-    public Result<CarBrandNoIdVo> add(@RequestBody CarBrandNoIdDto carBrandNoIdDto){
+    public Result<CarBrandVo> add(@RequestBody CarBrandNoIdDto carBrandNoIdDto){
         return carBrandService.add(carBrandNoIdDto);
     }
 
@@ -36,17 +36,17 @@ public class CarBrandController {
     }
 
     @PostMapping("/update")
-    public Result<CarBrandNoIdVo> update(@RequestBody CarBrandDto carBrandDto){
+    public Result<CarBrandVo> update(@RequestBody CarBrandDto carBrandDto){
         return carBrandService.update(carBrandDto);
     }
 
     @PostMapping("/getCarBrandById")
-    public Result<CarBrandNoIdVo> getCarBrandById(@RequestBody IdDto idDto){
+    public Result<CarBrandVo> getCarBrandById(@RequestBody IdDto idDto){
         return carBrandService.getCarBrandById(idDto);
     }
 
     @PostMapping("/listNameByCarCompanyId")
-    public Result<List<CarBrandNoIdVo>> listNameByCarCompanyId(@RequestBody IdDto idDto){
+    public Result<List<CarBrandVo>> listNameByCarCompanyId(@RequestBody IdDto idDto){
         return carBrandService.listNameByCarCompanyId(idDto);
     }
 }

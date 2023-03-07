@@ -2,7 +2,7 @@ package course.linkflower.link.oneframework.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarCompany;
-import course.linkflower.link.oneframework.vo.carcompany.CarCompanyNoIdVo;
+import course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,5 +12,5 @@ public interface CarCompanyMapper extends SuperMapper<CarCompanyMapper> {
 
     int update(CarCompany carCompany);
 
-    CarCompanyNoIdVo getCarCompanyById(@Param("id") long id);
+    CarCompanyVo getCarCompanyById(@Param("id") long id);
 }

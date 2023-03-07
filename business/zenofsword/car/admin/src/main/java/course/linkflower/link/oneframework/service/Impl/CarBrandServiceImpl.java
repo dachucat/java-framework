@@ -8,7 +8,7 @@ import course.linkflower.link.oneframework.dto.carbrand.CarBrandDto;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandNoIdDto;
 import course.linkflower.link.oneframework.model.CarBrand;
 import course.linkflower.link.oneframework.service.CarBrandService;
-import course.linkflower.link.oneframework.vo.carbrand.CarBrandNoIdVo;
+import course.linkflower.link.oneframework.vo.carbrand.CarBrandVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,20 +20,16 @@ public class CarBrandServiceImpl implements CarBrandService {
     private CarBrandMapper carBrandMapper;
 
     @Override
-    public Result<CarBrandNoIdVo> add(CarBrandNoIdDto carBrandNoIdDto) {
-        if (carBrandMapper.countSameIcon(carBrandNoIdDto.getIcon())!=0){
-             long id=carBrandMapper.getIdByIcon(carBrandNoIdDto.getIcon());
-             if (carBrandMapper.getNameById(id)==carBrandNoIdDto.getName()){
-                    if (carBrandMapper.getCarCompanyIdById(id)==Long.parseLong(carBrandNoIdDto.getCarCompanyId())){
-                        Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                                String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
-                                        "carCompanyId and  name and icon"));
-                    }
-             }
+    public Result<CarBrandVo> add(CarBrandNoIdDto carBrandNoIdDto) {
+        if (carBrandMapper.countCompanyIdBrandName(Long.parseLong(carBrandNoIdDto.getCarCompanyId()),
+                carBrandNoIdDto.getName())!=0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
+                            "carCompanyId and name"));
         }
-        CarBrand carBrand=carBrandNoIdDto.toModel(carBrandNoIdDto);
+        CarBrand carBrand= carBrandNoIdDto.toModel(carBrandNoIdDto);
         carBrandMapper.add(carBrand);
-        return Result.succeed(new CarBrandNoIdVo().loadFrom(carBrand));
+        return Result.succeed(new CarBrandVo().loadFrom(carBrand));
     }
 
     @Override
@@ -43,20 +39,25 @@ public class CarBrandServiceImpl implements CarBrandService {
     }
 
     @Override
-    public Result<List<CarBrandNoIdVo>> listNameByCarCompanyId(IdDto idDto) {
+    public Result<List<CarBrandVo>> listNameByCarCompanyId(IdDto idDto) {
         return Result.succeed(carBrandMapper.listNameByCarCompanyId(Long.parseLong(idDto.getId())));
     }
 
     @Override
-    public Result<CarBrandNoIdVo> getCarBrandById(IdDto idDto) {
+    public Result<CarBrandVo> getCarBrandById(IdDto idDto) {
         return Result.succeed(carBrandMapper.getCarBrandById(Long.parseLong(idDto.getId())));
 
     }
 
     @Override
-    public Result<CarBrandNoIdVo> update(CarBrandDto carBrandDto) {
+    public Result<CarBrandVo> update(CarBrandDto carBrandDto) {
+        if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
+                carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
+            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId and Name"));
+        }
         CarBrand carBrand=carBrandDto.toModel(carBrandDto);
         carBrandMapper.update(carBrand);
-        return Result.succeed(new CarBrandNoIdVo().loadFrom(carBrand));
+        return Result.succeed(new CarBrandVo().loadFrom(carBrand));
     }
 }

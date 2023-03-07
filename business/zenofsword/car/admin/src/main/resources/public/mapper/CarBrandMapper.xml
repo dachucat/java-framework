@@ -16,27 +16,23 @@
         update car_brand set icon=#{icon}, name=#{name}, car_company_id=#{carCompanyId} where id=#{id}
     </update>
 
-    <select id="getCarBrandById" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandNoIdVo">
+    <select id="getCarBrandById" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandVo">
         select * from car_brand where id=#{id}
     </select>
 
-    <select id="listNameByCarCompanyId" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandNoIdVo">
+    <select id="listNameByCarCompanyId" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandVo">
         select name from car_brand where car_company_id=#{id}
     </select>
 
-    <select id="countSameIcon" resultType="int">
-        select(*) from car_brand where icon=#{icon}
-    </select>
-
-    <select id="getIdByIcon" resultType="long">
-        select id from car_brand where icon=#{icon}
-    </select>
-    
     <select id="getNameById" resultType="String">
         select name from car_brand where id=#{id}
     </select>
-    
-    <select id="getCarCompanyIdById" resultType="String">
-        select car_company_id from car_brand where id=#{id}
+
+    <select id="countCompanyIdBrandName" resultType="int">
+        select count(*) from car_brand where car_company_id=#{carCompanyId} and name=#{name} limit 1
+    </select>
+
+    <select id="countCompanyIdBrandNamediffId" resultType="int">
+        select count(*) from car_brand where car_company_id=#{carCompanyId} and name=#{name} and id!=#{id} limit 1
     </select>
 </mapper>

@@ -5,9 +5,8 @@ import course.linkflower.link.oneframework.service.CarCompanyService;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carcompany.CarCompanyDto;
-import course.linkflower.link.oneframework.dto.carcompany.CarCompanyNoIdDto;
 import course.linkflower.link.oneframework.model.CarCompany;
-import course.linkflower.link.oneframework.vo.carcompany.CarCompanyNoIdVo;
+import course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +22,16 @@ public class CarCompanyServiceImpl implements CarCompanyService {
     }
 
     @Override
-    public Result<CarCompanyNoIdVo> update(CarCompanyDto carCompanyDto) {
+    public Result<CarCompanyVo> update(CarCompanyDto carCompanyDto) {
         CarCompany carCompany = carCompanyDto.toModel(carCompanyDto);
         carCompanyMapper.update(carCompany);
         return Result.succeed(carCompanyMapper.getCarCompanyById(Long.parseLong(carCompanyDto.getId())));
     }
 
     @Override
-    public Result<CarCompanyNoIdVo> add(CarCompanyNoIdDto carCompanyNoIdDto) {
-        CarCompany carCompany=carCompanyNoIdDto.toModel(carCompanyNoIdDto);
+    public Result<CarCompanyVo> add(CarCompanyDto carCompanyDto) {
+        CarCompany carCompany= carCompanyDto.toModel(carCompanyDto);
         carCompanyMapper.add(carCompany);
-        return Result.succeed(new CarCompanyNoIdVo().loadFrom(carCompany));
+        return Result.succeed(new CarCompanyVo().loadFrom(carCompany));
     }
 }

@@ -3,9 +3,8 @@ package course.linkflower.link.oneframework.controller;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carcompany.CarCompanyDto;
-import course.linkflower.link.oneframework.dto.carcompany.CarCompanyNoIdDto;
 import course.linkflower.link.oneframework.service.CarCompanyService;
-import course.linkflower.link.oneframework.vo.carcompany.CarCompanyNoIdVo;
+import course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -23,12 +22,12 @@ public class CarCompanyController {
     private CarCompanyService carCompanyService;
 
     @PostMapping("/add")
-    public Result<CarCompanyNoIdVo> add(@RequestBody CarCompanyNoIdDto carCompanyNoIdDto){
-        return carCompanyService.add(carCompanyNoIdDto);
+    public Result<CarCompanyVo> add(@RequestBody CarCompanyDto carCompanyDto){
+        return carCompanyService.add(carCompanyDto);
     }
 
     @PostMapping("/update")
-    public Result<CarCompanyNoIdVo> update(@RequestBody CarCompanyDto carCompanyDto){
+    public Result<CarCompanyVo> update(@RequestBody CarCompanyDto carCompanyDto){
         return carCompanyService.update(carCompanyDto);
     }
 
