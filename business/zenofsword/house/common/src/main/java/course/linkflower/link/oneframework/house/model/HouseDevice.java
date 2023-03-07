@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("house_device")
 public class HouseDevice {
-    private long id;
-    private long rentHouseInfoId;
-    private long houseDeviceTypeId;
+    private Long id;
+    private Long rentHouseInfoId;
+    private Long houseDeviceTypeId;
 }

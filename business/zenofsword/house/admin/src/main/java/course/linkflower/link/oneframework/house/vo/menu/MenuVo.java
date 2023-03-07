@@ -3,9 +3,8 @@ package course.linkflower.link.oneframework.house.vo.menu;
 import course.linkflower.link.oneframework.house.model.Menu;
 import lombok.Data;
 
-import java.awt.*;
-
 @Data
+
 public class MenuVo {
     private String id;
     private String name;

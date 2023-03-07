@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="course.linkflower.link.oneframework.house.dao.HouseDictionaryMapper">
+    <select id="getHouseDictionaryById" resultType="course.linkflower.link.oneframework.house.model.HouseDictionary">
+        select * from house_dictionary where id=#{id}
+    </select>
+
+    <insert id="save" parameterType="course.linkflower.link.oneframework.house.model.HouseDictionary" useGeneratedKeys="true" keyProperty="id">
+        insert into house_dictionary (`type`, `key`, `value`)
+        values(#{type},#{key},#{value})
+    </insert>
+
+    <delete id="delete">
+        delete from house_dictionary where id=#{id}
+    </delete>
+    <update id="update" parameterType="course.linkflower.link.oneframework.house.model.HouseDictionary" useGeneratedKeys="true">
+        update house_dictionary set `type`=#{type},`key`=#{key},`value` = #{value} where id = #{id}
+    </update>
+
+    <select id="lastSortValueByKey" resultType="int">
+        select sort_value from house_dictionary where `key` = #{key} order by sort_value desc limit 1;
+    </select>
+
+    <select id="countByTypeKey" resultType="int">
+        select count(*) from house_dictionary where `type` = #{type}  and `key` = #{key};
+    </select>
+
+    <select id="countByTypeKeyId" resultType="int">
+        select count(*) from house_dictionary where `type` = #{type}  and `key` = #{key} and id != #{id};
+    </select>
+
+    <select id="listDictionaryByKey" resultType="course.linkflower.link.oneframework.house.model.HouseDictionary">
+        select * from house_dictionary where `key` = #{key} order by sort_value limit #{count}
+    </select>
+</mapper>

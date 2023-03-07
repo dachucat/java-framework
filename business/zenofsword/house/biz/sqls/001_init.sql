@@ -1,1 +1,0 @@
-ALTER TABLE book CHANGE destory_date destroy_date datetime NULL;

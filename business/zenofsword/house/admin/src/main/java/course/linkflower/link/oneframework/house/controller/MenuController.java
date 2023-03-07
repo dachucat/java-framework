@@ -6,14 +6,9 @@ import course.linkflower.link.oneframework.house.dto.menu.AddMenuDto;
 import course.linkflower.link.oneframework.house.dto.menu.DeleteMenuDto;
 import course.linkflower.link.oneframework.house.dto.menu.SearchMenuDto;
 import course.linkflower.link.oneframework.house.dto.menu.UpdateMenuDto;
-import course.linkflower.link.oneframework.house.dto.topic.AddTopicDto;
-import course.linkflower.link.oneframework.house.dto.topic.DeleteTopicDto;
-import course.linkflower.link.oneframework.house.dto.topic.SearchTopicDto;
-import course.linkflower.link.oneframework.house.dto.topic.UpdateTopicDto;
 import course.linkflower.link.oneframework.house.service.MenuService;
 import course.linkflower.link.oneframework.house.vo.menu.MenuTreeVo;
 import course.linkflower.link.oneframework.house.vo.menu.MenuVo;
-import course.linkflower.link.oneframework.house.vo.topic.TopicVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -23,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import java.util.List;
-
 @RestController
 @Slf4j
 @RequestMapping("/menu")
@@ -33,10 +25,10 @@ import java.util.List;
 public class MenuController {
     @Autowired
     MenuService menuService;
-    @PostMapping("/listMenuTreeByCode")
-    public Result<MenuTreeVo> listMenuTreeByCode (@RequestBody CodeDto codeDto){
-        return menuService.listMenuTreeByCode(codeDto.getCode()) ;
-    }
+//    @PostMapping("/listMenuTreeByCode")
+//    public Result<MenuTreeVo> listMenuTreeByCode (@RequestBody CodeDto codeDto){
+//        return menuService.listMenuTreeByCode(codeDto.getCode()) ;
+//    }
     @PostMapping("/add")
     public Result<MenuVo> add(@Validated @RequestBody AddMenuDto addMenuDto) {
         return menuService.addMenu(addMenuDto);

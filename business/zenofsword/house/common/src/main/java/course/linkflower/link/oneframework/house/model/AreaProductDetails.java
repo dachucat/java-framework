@@ -10,9 +10,9 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("area_product_details")
 public class AreaProductDetails {
-    private long id;
-    private long targetId;
-    private long areaInfoId;
+    private Long id;
+    private Long targetId;
+    private Long areaInfoId;
     private String targetType;
     private String areaType;
     private int areaLevel;

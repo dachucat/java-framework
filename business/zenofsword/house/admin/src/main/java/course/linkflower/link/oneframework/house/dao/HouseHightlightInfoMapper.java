@@ -11,4 +11,5 @@ public interface HouseHightlightInfoMapper {
     int delete(@Param("id") long id);
     int update(HouseHightlightInfo houseHightlightInfo);
     HouseHightlightInfo getHouseHightlightInfoById(@Param("id") long id);
+    int countByName(@Param("name") String name);
 }

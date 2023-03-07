@@ -12,6 +12,11 @@
     <dependencies>
         <dependency>
             <groupId>course.linkflower.link</groupId>
+            <artifactId>zenofsword.house-admin</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>course.linkflower.link</groupId>
             <artifactId>zenofsword.house-common</artifactId>
             <version>1.0.0</version>
         </dependency>

@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
+import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dao.HouseDeviceTypeMapper;
 import course.linkflower.link.oneframework.house.dto.housedevicetype.AddHouseDeviceTypeDto;
@@ -20,6 +21,9 @@ public class HouseDeviceTypeServiceImpl implements HouseDeviceTypeService {
     @Override
     public Result<HouseDeviceTypeVo> addHouseDeviceType(AddHouseDeviceTypeDto addHouseDeviceTypeDto) {
         HouseDeviceType houseDeviceType = addHouseDeviceTypeDto.toModel();
+        if (houseDeviceTypeMapper.countByName(addHouseDeviceTypeDto.getName()) !=0){
+           return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseDeviceTypeMapper.save(houseDeviceType);
         return Result.succeed(new HouseDeviceTypeVo().loadFrom(houseDeviceType));
     }
@@ -33,6 +37,9 @@ public class HouseDeviceTypeServiceImpl implements HouseDeviceTypeService {
     @Override
     public Result<HouseDeviceTypeVo> updateHouseDeviceType(UpdateHouseDeviceTypeDto updateHouseDeviceTypeDto) {
         HouseDeviceType houseDeviceType = updateHouseDeviceTypeDto.toModel();
+        if (houseDeviceTypeMapper.countByName(updateHouseDeviceTypeDto.getName()) !=0){
+            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseDeviceTypeMapper.update(houseDeviceType);
         return Result.succeed(new HouseDeviceTypeVo().loadFrom(houseDeviceType));
     }

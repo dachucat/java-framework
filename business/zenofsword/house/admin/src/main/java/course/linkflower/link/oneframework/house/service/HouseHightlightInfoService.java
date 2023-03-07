@@ -1,9 +1,6 @@
 package course.linkflower.link.oneframework.house.service;
 
 import course.linkflower.link.oneframework.common.model.Result;
-import course.linkflower.link.oneframework.house.dto.housedevicetype.DeleteHouseDeviceTypeDto;
-import course.linkflower.link.oneframework.house.dto.housedevicetype.SearchHouseDeviceTypeDto;
-import course.linkflower.link.oneframework.house.dto.housedevicetype.UpdateHouseDeviceTypeDto;
 import course.linkflower.link.oneframework.house.dto.househighlightinfo.AddHouseHightlightInfoDto;
 import course.linkflower.link.oneframework.house.dto.househighlightinfo.DeleteHouseHightlightInfoDto;
 import course.linkflower.link.oneframework.house.dto.househighlightinfo.SearchHouseHightlightInfoDto;

@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("commission")
 public class Commission {
-    private long id;
+    private Long id;
     private String type;
     private String value;
 }

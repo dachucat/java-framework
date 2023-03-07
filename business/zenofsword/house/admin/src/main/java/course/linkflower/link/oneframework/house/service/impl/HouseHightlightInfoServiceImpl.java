@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
+import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dao.HouseHightlightInfoMapper;
 import course.linkflower.link.oneframework.house.dto.househighlightinfo.AddHouseHightlightInfoDto;
@@ -19,6 +20,9 @@ public class HouseHightlightInfoServiceImpl implements HouseHightlightInfoServic
     @Override
     public Result<HouseHightlightInfoVo> addHouseHightlightInfo(AddHouseHightlightInfoDto addHouseHightlightInfoDto) {
         HouseHightlightInfo houseHightlightInfo = addHouseHightlightInfoDto.toModel();
+        if (houseHightlightInfoMapper.countByName(addHouseHightlightInfoDto.getName())!=0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseHightlightInfoMapper.save(houseHightlightInfo);
         return Result.succeed(new HouseHightlightInfoVo().loadFrom(houseHightlightInfo));
     }
@@ -32,6 +36,9 @@ public class HouseHightlightInfoServiceImpl implements HouseHightlightInfoServic
     @Override
     public Result<HouseHightlightInfoVo> updateHouseHightlightInfo(UpdateHouseHightlightInfoDto updateHouseHightlightInfoDto) {
         HouseHightlightInfo houseHightlightInfo = updateHouseHightlightInfoDto.toModel();
+        if (houseHightlightInfoMapper.countByName(updateHouseHightlightInfoDto.getName())!=0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseHightlightInfoMapper.update(houseHightlightInfo);
         return Result.succeed(new HouseHightlightInfoVo().loadFrom(houseHightlightInfo));
     }

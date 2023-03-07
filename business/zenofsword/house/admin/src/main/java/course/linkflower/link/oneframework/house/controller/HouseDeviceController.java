@@ -1,16 +1,11 @@
 package course.linkflower.link.oneframework.house.controller;
 
 import course.linkflower.link.oneframework.common.model.Result;
-import course.linkflower.link.oneframework.house.dto.areainfo.AddAreaInfoDto;
-import course.linkflower.link.oneframework.house.dto.areainfo.DeleteAreaInfoDto;
-import course.linkflower.link.oneframework.house.dto.areainfo.SearchAreaInfoDto;
-import course.linkflower.link.oneframework.house.dto.areainfo.UpdateAreaInfoDto;
 import course.linkflower.link.oneframework.house.dto.housedevice.AddHouseDeviceDto;
 import course.linkflower.link.oneframework.house.dto.housedevice.DeleteHouseDeviceDto;
 import course.linkflower.link.oneframework.house.dto.housedevice.SearchHouseDeviceDto;
 import course.linkflower.link.oneframework.house.dto.housedevice.UpdateHouseDeviceDto;
 import course.linkflower.link.oneframework.house.service.HouseDeviceService;
-import course.linkflower.link.oneframework.house.vo.areainfo.AreaInfoVo;
 import course.linkflower.link.oneframework.house.vo.housedevice.HouseDeviceVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

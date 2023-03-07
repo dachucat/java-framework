@@ -11,4 +11,5 @@ public interface AreaProductDetailsMapper {
     int delete(@Param("id") long id);
     int update(AreaProductDetails areaProductDetails);
     AreaProductDetails getAreaProductDetailsById(@Param("id") long id);
+    int countByAreaTargetType(AreaProductDetails areaProductDetails);
 }

@@ -1,0 +1,22 @@
+package course.linkflower.link.oneframework.house.vo.housedictionary;
+
+import course.linkflower.link.oneframework.house.model.HouseDictionary;
+import lombok.Data;
+
+@Data
+public class HouseDictionaryVo {
+    private String id;
+    private String type;
+    private String key;
+    private String value;
+
+    public HouseDictionaryVo loadFrom(HouseDictionary d){
+        if (d!=null){
+            id =String.valueOf(d.getId());
+            type = d.getType();
+            key = d.getKey();
+            value = d.getValue();
+        }
+        return this;
+    }
+}

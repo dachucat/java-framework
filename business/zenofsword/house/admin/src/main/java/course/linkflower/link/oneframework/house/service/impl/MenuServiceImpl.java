@@ -3,7 +3,6 @@ package course.linkflower.link.oneframework.house.service.impl;
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dao.MenuMapper;
-import course.linkflower.link.oneframework.house.dto.base.CodeDto;
 import course.linkflower.link.oneframework.house.dto.menu.AddMenuDto;
 import course.linkflower.link.oneframework.house.dto.menu.DeleteMenuDto;
 import course.linkflower.link.oneframework.house.dto.menu.SearchMenuDto;
@@ -52,9 +51,9 @@ public class MenuServiceImpl implements MenuService {
         return Result.succeed(new MenuVo().loadFrom(menuMapper.getMenuById(Long.parseLong(searchMenuDto.getId()))));
     }
 
-    @Override
-    public Result<MenuTreeVo> listMenuTreeByCode(String code) {
-        List<MenuTreeVo> topics = menuMapper.listMenuTreeByParentCode(code);
-        return Result.succeed(MenuTreeVo.loadFromList(topics));
-    }
+//    @Override
+//    public Result<MenuTreeVo> listMenuTreeByCode(String code) {
+//        List<MenuTreeVo> topics = menuMapper.listMenuTreeByParentCode(code);
+//        return Result.succeed(MenuTreeVo.loadFromList(topics));
+//    }
 }
