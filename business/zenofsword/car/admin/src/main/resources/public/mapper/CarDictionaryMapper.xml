@@ -17,4 +17,25 @@
     <select id="lastOrderingByType" resultType="Integer">
         select ordering from car_dictionary where type=#{type} order by ordering desc limit 1
     </select>
+
+    <delete id="deleteById">
+        delete from car_dictionary where id=#{id}
+    </delete>
+
+    <update id="update">
+        update car_dictionary set
+        <if test="value!=null">value=#{value},</if>
+        <if test="key!=null">`key`=#{key},</if>
+        <if test="type!=null">type=#{type},</if>
+        <if test="ordering!=null">ordering=#{ordering}</if>
+        where id=#{id}
+    </update>
+
+    <select id="countTypeValuediffId" resultType="int">
+        select count(*) from car_dictionary where type=#{type} and value=#{value} and id!=#{id}
+    </select>
+
+    <select id="listKeyByType" resultType="course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryVo">
+        select `key` from car_dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
+    </select>
 </mapper>
