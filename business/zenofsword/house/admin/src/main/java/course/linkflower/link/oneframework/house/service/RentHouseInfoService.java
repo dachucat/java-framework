@@ -5,7 +5,6 @@ import course.linkflower.link.oneframework.house.dto.renthouseinfo.AddRentHouseI
 import course.linkflower.link.oneframework.house.dto.renthouseinfo.DeleteRentHouseInfoDto;
 import course.linkflower.link.oneframework.house.dto.renthouseinfo.SearchRentHouseInfoDto;
 import course.linkflower.link.oneframework.house.dto.renthouseinfo.UpdateRentHouseInfoDto;
-import course.linkflower.link.oneframework.house.model.RentHouseInfo;
 import course.linkflower.link.oneframework.house.vo.renthouseinfo.RentHouseInfoVo;
 
 public interface RentHouseInfoService {

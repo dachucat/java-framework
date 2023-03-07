@@ -1,8 +1,7 @@
 package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.house.model.Menu;
-import course.linkflower.link.oneframework.house.vo.menu.MenuTreeVo;
-import course.linkflower.link.oneframework.house.vo.topic.TopicTreeVo;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,5 +15,5 @@ public interface MenuMapper {
     Menu getMenuById(@Param("id") long id);
     int countByCode(@Param("code") String code);
     int countByCodeAndId(@Param("code") String code);
-    List<MenuTreeVo> listMenuTreeByParentCode(@Param("code") String code);
+
 }

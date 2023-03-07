@@ -13,12 +13,8 @@ public class AddAreaProductDetailsDto {
 
     public AreaProductDetails toModel(){
         AreaProductDetails areaProductDetails = new AreaProductDetails();
-        if (targetId != null){
-            areaProductDetails.setTargetId(Long.parseLong(targetId));
-        }
-        if (areaInfoId != null){
-            areaProductDetails.setAreaInfoId(Long.parseLong(areaInfoId));
-        }
+        areaProductDetails.setTargetId(Long.parseLong(targetId));
+        areaProductDetails.setAreaInfoId(Long.parseLong(areaInfoId));
         areaProductDetails.setTargetType(targetType);
         areaProductDetails.setAreaType(areaType);
         areaProductDetails.setAreaLevel(areaLevel);

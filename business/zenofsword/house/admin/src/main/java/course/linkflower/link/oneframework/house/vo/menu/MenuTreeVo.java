@@ -1,15 +1,14 @@
 package course.linkflower.link.oneframework.house.vo.menu;
 
-import course.linkflower.link.oneframework.house.vo.topic.TopicTreeVo;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 @Data
 public class MenuTreeVo {
+
     private String id;
     private String name;
     private String parentId;

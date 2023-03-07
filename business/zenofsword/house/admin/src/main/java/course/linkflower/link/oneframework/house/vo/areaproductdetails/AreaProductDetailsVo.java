@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.vo.areaproductdetails;
 
-import course.linkflower.link.oneframework.house.model.AreaInfo;
 import course.linkflower.link.oneframework.house.model.AreaProductDetails;
 import lombok.Data;
 

@@ -18,4 +18,7 @@
         update area_product_details set `target_id`=#{targetId},`area_info_id` = #{areaInfoId},`target_type`=#{targetType},
         `area_type` = #{areaType} ,`area_level` = #{areaLevel} where id = #{id}
     </update>
+    <select id="countByAreaTargetType" resultType="int" parameterType="course.linkflower.link.oneframework.house.model.AreaProductDetails">
+        select count(*) from area_product_details where `target_id` = #{targetId}  and `area_info_id` = #{areaInfoId} and `target_type` = #{targetType}
+    </select>
 </mapper>

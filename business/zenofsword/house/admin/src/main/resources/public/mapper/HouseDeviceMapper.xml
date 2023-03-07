@@ -17,4 +17,7 @@
     <update id="update" parameterType="course.linkflower.link.oneframework.house.model.HouseDevice" useGeneratedKeys="true">
         update house_device set `rent_house_info_id`=#{rentHouseInfoId},`house_device_type_id` = #{houseDeviceTypeId} where id = #{id}
     </update>
+    <select id="countByHouseDeviceTypeId" resultType="int">
+        select count(*) from house_device where `rent_house_info_id` = #{rentHouseInfoId}  and `house_device_type_id` = #{houseDeviceTypeId};
+    </select>
 </mapper>

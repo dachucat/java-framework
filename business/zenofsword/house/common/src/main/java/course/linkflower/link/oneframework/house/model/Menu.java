@@ -10,9 +10,9 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("menu")
 public class Menu {
-    private long id;
+    private Long id;
     private String name;
-    private long parentId;
+    private Long parentId;
     private int columnType;
     private String barcode;
     private String description;

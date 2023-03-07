@@ -11,4 +11,5 @@ public interface HouseDeviceMapper {
     int delete(@Param("id") long id);
     int update(HouseDevice houseDevice);
     HouseDevice getHouseDeviceById(@Param("id") long id);
+    int countByHouseDeviceTypeId(@Param("rentHouseInfoId") long rentHouseInfoId,@Param("houseDeviceTypeId") long houseDeviceTypeId);
 }

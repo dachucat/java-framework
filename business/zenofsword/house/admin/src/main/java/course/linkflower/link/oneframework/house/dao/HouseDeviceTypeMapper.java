@@ -10,5 +10,6 @@ public interface HouseDeviceTypeMapper {
     int save (HouseDeviceType houseDeviceType);
     int delete(@Param("id") long id);
     int update(HouseDeviceType houseDeviceType);
+    int countByName(@Param("name") String name);
     HouseDeviceType getHouseDeviceTypeById(@Param("id") long id);
 }

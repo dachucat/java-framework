@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
+import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dao.AreaProductDetailsMapper;
 import course.linkflower.link.oneframework.house.dto.areaproductdetails.AddAreaProductDetailsDto;
@@ -20,6 +21,9 @@ public class AreaProductDetailsServiceImpl implements AreaProductDetailsService 
     @Override
     public Result<AreaProductDetailsVo> addAreaProductDetails(AddAreaProductDetailsDto addAreaProductDetailsDto) {
         AreaProductDetails areaProductDetails = addAreaProductDetailsDto.toModel();
+        if (areaProductDetailsMapper.countByAreaTargetType(areaProductDetails) != 0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         areaProductDetailsMapper.save(areaProductDetails);
         return Result.succeed(new AreaProductDetailsVo().loadFrom(areaProductDetails));
     }
@@ -32,6 +36,9 @@ public class AreaProductDetailsServiceImpl implements AreaProductDetailsService 
     @Override
     public Result<AreaProductDetailsVo> updateAreaProductDetails(UpdateAreaProductDetailsDto updateAreaProductDetailsDto) {
         AreaProductDetails areaProductDetails = updateAreaProductDetailsDto.toModel();
+        if (areaProductDetailsMapper.countByAreaTargetType(areaProductDetails) != 0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         areaProductDetailsMapper.update(areaProductDetails);
         return Result.succeed(new AreaProductDetailsVo().loadFrom(areaProductDetails));
     }

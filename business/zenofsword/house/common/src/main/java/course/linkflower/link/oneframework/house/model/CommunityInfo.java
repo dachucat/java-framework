@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("community_info")
 public class CommunityInfo {
-    private long id;
+    private Long id;
     private int buildYears;
     private String name;
     private String propertyCompany;

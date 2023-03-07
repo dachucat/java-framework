@@ -2,6 +2,8 @@ package course.linkflower.link.oneframework.house.dto.areainfo;
 
 import course.linkflower.link.oneframework.house.model.AreaInfo;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 
 @Data
 public class AddAreaInfoDto {
@@ -14,7 +16,7 @@ public class AddAreaInfoDto {
 
     public AreaInfo toModel(){
         AreaInfo areaInfo = new AreaInfo();
-        if (parentId!=null){
+        if (!StringUtils.isEmpty(parentId)){
             areaInfo.setParentId(Long.parseLong(parentId));
         }
         areaInfo.setLevel(level);

@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.house.service.impl;
 
+import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dao.HouseDeviceMapper;
 import course.linkflower.link.oneframework.house.dto.housedevice.AddHouseDeviceDto;
@@ -20,6 +21,9 @@ public class HouseDeviceServiceImpl implements HouseDeviceService {
     @Override
     public Result<HouseDeviceVo> addHouseDevice(AddHouseDeviceDto addHouseDeviceDto) {
         HouseDevice houseDevice = addHouseDeviceDto.toModel();
+        if (houseDeviceMapper.countByHouseDeviceTypeId(Long.parseLong(addHouseDeviceDto.getRentHouseInfoId()),Long.parseLong(addHouseDeviceDto.getHouseDeviceTypeId()))!=0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseDeviceMapper.save(houseDevice);
         return Result.succeed(new HouseDeviceVo().loadFrom(houseDevice));
     }
@@ -33,6 +37,9 @@ public class HouseDeviceServiceImpl implements HouseDeviceService {
     @Override
     public Result<HouseDeviceVo> updateHouseDevice(UpdateHouseDeviceDto updateHouseDeviceDto) {
         HouseDevice houseDevice = updateHouseDeviceDto.toModel();
+        if (houseDeviceMapper.countByHouseDeviceTypeId(Long.parseLong(updateHouseDeviceDto.getRentHouseInfoId()),Long.parseLong(updateHouseDeviceDto.getHouseDeviceTypeId()))!=0){
+            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,BaseErrorContst.BaseMsgTimeParamsDuplicateError);
+        }
         houseDeviceMapper.update(houseDevice);
         return Result.succeed(new HouseDeviceVo().loadFrom(houseDevice));
     }

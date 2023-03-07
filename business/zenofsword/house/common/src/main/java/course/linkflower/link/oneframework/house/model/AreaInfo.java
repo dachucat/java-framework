@@ -10,8 +10,8 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("area_info")
 public class AreaInfo {
-    private long id;
-    private long parentId;
+    private Long id;
+    private Long parentId;
     private int level;
     private String name;
     private String code;

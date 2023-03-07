@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.vo.househightlightinfo;
 
-import course.linkflower.link.oneframework.house.model.HouseHighlight;
 import course.linkflower.link.oneframework.house.model.HouseHightlightInfo;
 import lombok.Data;
 

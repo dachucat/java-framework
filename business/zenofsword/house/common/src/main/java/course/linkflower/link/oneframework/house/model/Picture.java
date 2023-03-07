@@ -10,8 +10,8 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @TableName("picture")
 public class Picture {
-    private long id;
-    private long rentHouseInfoId;
+    private Long id;
+    private Long rentHouseInfoId;
     private String type;
     private String name;
     private String url;
