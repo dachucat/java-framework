@@ -1,7 +1,6 @@
 package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
-import course.linkflower.link.oneframework.house.model.Client;
 import course.linkflower.link.oneframework.house.vo.clientwallet.ClientWalletVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

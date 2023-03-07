@@ -1,7 +1,6 @@
 package course.linkflower.link.oneframework.house.dto.book;
 
 import cn.hutool.core.date.DateTime;
-import course.linkflower.link.oneframework.house.model.Book;
 import lombok.Data;
 
 @Data

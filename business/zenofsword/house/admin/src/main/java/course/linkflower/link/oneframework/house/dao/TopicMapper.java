@@ -1,14 +1,11 @@
 package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
-import course.linkflower.link.oneframework.house.model.BookInfo;
-import course.linkflower.link.oneframework.house.model.Publisher;
 import course.linkflower.link.oneframework.house.model.Topic;
 import course.linkflower.link.oneframework.house.vo.topic.TopicTreeVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.Collection;
 import java.util.List;
 
 @Mapper

@@ -33,7 +33,7 @@ public class CommissionServiceImpl implements CommissionService {
     @Override
     public Result<CommissionVo> updateCommission(UpdateCommissionDto updateCommissionDto) {
         Commission commission = updateCommissionDto.toModel();
-        commissionMapper.save(commission);
+        commissionMapper.update(commission);
         return Result.succeed(new CommissionVo().loadFrom(commission));
     }
 

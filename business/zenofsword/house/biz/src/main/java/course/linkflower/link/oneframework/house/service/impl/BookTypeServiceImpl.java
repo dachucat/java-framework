@@ -5,7 +5,6 @@ import course.linkflower.link.oneframework.house.dto.bookType.AddBookTypeDto;
 import course.linkflower.link.oneframework.house.dto.bookType.DeleteBookTypeDto;
 import course.linkflower.link.oneframework.house.dto.bookType.SearchBookTypeDto;
 import course.linkflower.link.oneframework.house.dto.bookType.UpdateBookTypeDto;
-import course.linkflower.link.oneframework.house.model.Book;
 import course.linkflower.link.oneframework.house.service.BookTypeService;
 import course.linkflower.link.oneframework.house.vo.bookType.BookTypeVo;
 import org.springframework.beans.factory.annotation.Autowired;

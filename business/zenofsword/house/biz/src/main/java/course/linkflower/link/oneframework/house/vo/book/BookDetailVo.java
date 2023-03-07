@@ -2,19 +2,12 @@ package course.linkflower.link.oneframework.house.vo.book;
 
 import course.linkflower.link.oneframework.house.dto.book.BookShortInfoVo;
 import course.linkflower.link.oneframework.house.dto.bookShelf.BookShelfInfoVo;
-import course.linkflower.link.oneframework.house.model.Book;
-import course.linkflower.link.oneframework.house.model.BookBorrowRecord;
-import course.linkflower.link.oneframework.house.model.BorrowRecord;
 import course.linkflower.link.oneframework.house.vo.bookInfo.BookInforShortVo;
 import course.linkflower.link.oneframework.house.vo.borrowRecord.BorrowRecordInfoVo;
 import course.linkflower.link.oneframework.house.vo.borrowcard.BorrowCardInfoVo;
 import course.linkflower.link.oneframework.house.vo.client.ClientInfoVo;
 import course.linkflower.link.oneframework.house.vo.publisher.PublisherInfoVo;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Data
 public class BookDetailVo {

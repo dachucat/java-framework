@@ -2,8 +2,6 @@ package course.linkflower.link.oneframework.house.controller;
 
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dto.base.IdDto;
-import course.linkflower.link.oneframework.house.model.Client;
-import course.linkflower.link.oneframework.house.model.ClientWallet;
 import course.linkflower.link.oneframework.house.service.ClientWalletService;
 import course.linkflower.link.oneframework.house.vo.clientwallet.ClientWalletVo;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.vo.borrowRecord;
 
-import course.linkflower.link.oneframework.house.model.BorrowRecord;
 import lombok.Data;
 
 @Data

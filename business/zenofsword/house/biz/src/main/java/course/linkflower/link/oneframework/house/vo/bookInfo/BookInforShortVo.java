@@ -1,6 +1,5 @@
 package course.linkflower.link.oneframework.house.vo.bookInfo;
 
-import course.linkflower.link.oneframework.house.model.BookInfo;
 import lombok.Data;
 
 @Data

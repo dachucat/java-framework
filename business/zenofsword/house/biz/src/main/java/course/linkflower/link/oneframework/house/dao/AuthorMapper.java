@@ -2,7 +2,6 @@ package course.linkflower.link.oneframework.house.dao;
 
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.house.dto.author.AddAuthorDto;
-import course.linkflower.link.oneframework.house.model.Author;
 import course.linkflower.link.oneframework.house.vo.author.AuthorVo;
 import feign.Param;
 import org.apache.ibatis.annotations.Mapper;

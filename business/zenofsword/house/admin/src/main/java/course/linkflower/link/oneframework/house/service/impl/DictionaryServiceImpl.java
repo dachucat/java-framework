@@ -20,6 +20,9 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     public Result<DictionaryVo> addDictionary(AddDictionaryDto addDictionaryDto) {
        Dictionary dictionary =  addDictionaryDto.toModel();
+       if (dictionary.getSortValue() == null) {
+           dictionary.setSortValue(dictionaryMapper.lastSortValueByKey(addDictionaryDto.getKey()) + 1);
+       }
        dictionaryMapper.save(dictionary);
        return Result.succeed(new DictionaryVo().loadFrom(dictionary));
     }

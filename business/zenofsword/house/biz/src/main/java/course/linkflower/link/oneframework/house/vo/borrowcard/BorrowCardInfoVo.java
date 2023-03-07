@@ -1,9 +1,6 @@
 package course.linkflower.link.oneframework.house.vo.borrowcard;
 
-import course.linkflower.link.oneframework.house.model.BorrowCard;
 import lombok.Data;
-
-import java.util.Date;
 
 @Data
 public class BorrowCardInfoVo {

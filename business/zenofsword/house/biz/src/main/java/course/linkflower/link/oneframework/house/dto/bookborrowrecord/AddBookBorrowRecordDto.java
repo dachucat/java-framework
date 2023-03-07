@@ -1,9 +1,6 @@
 package course.linkflower.link.oneframework.house.dto.bookborrowrecord;
 
-import course.linkflower.link.oneframework.house.model.BookBorrowRecord;
 import lombok.Data;
-
-import java.util.Date;
 
 @Data
 public class AddBookBorrowRecordDto {
