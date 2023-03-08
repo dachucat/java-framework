@@ -17,3 +17,9 @@ ALTER TABLE car_advantage MODIFY COLUMN type_key VARCHAR(100) NOT NULL COMMENT '
 ALTER TABLE car_advantage DROP INDEX car_advantage_type_IDX;
 
 CREATE UNIQUE INDEX car_advantage_type_key_IDX USING BTREE ON car_advantage (type_key);
+
+CREATE UNIQUE INDEX car_infor_car_pattern_id_IDX USING BTREE ON car_infor (car_pattern_id);
+
+ALTER TABLE car_pattern CHANGE pattern_car_dict_key pattern_key varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '款式key（运动？时尚？）';
+
+CREATE UNIQUE INDEX car_pattern_car_pattern_IDX USING BTREE ON car_pattern (car_pattern,car_brand_id,time_pattern,pattern_key);

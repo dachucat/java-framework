@@ -1,6 +1,8 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
+import course.linkflower.link.oneframework.dto.CarInfor.CarInforDto;
 import course.linkflower.link.oneframework.dto.CarInfor.CarInforNoIdDto;
 import course.linkflower.link.oneframework.service.CarInforService;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("/CarInfor")
+@RequestMapping("/carInfor")
 @RefreshScope
 public class CarInforController {
     @Autowired
@@ -21,5 +23,20 @@ public class CarInforController {
     @PostMapping("/add")
     public Result<CarInforVo> add(CarInforNoIdDto carInforNoIdDto){
         return carInforService.add(carInforNoIdDto);
+    }
+
+    @PostMapping("/deleteById")
+    public Result deleteById(IdDto idDto){
+        return carInforService.deleteById(idDto);
+    }
+
+    @PostMapping("/updateById")
+    public Result<CarInforVo> updateById(CarInforDto carInforDto){
+        return carInforService.updateById(carInforDto);
+    }
+
+    @PostMapping("/getCarInforById")
+    public Result<CarInforVo> getCarInforById(IdDto idDto){
+        return carInforService.getCarInforById(idDto);
     }
 }
