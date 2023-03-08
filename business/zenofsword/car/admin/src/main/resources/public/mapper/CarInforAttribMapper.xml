@@ -17,25 +17,25 @@
 
     <update id="updateById">
         update car_infor_attrib set
-        <if test="#{carInforId}!=null">
+        <if test="carInforId!=null">
             car_infor_id=#{carInforId},
         </if>
-        <if test="#{typeCarDictKey}!=null">
-            type_car_dictKey=#{typeCarDictKey},
+        <if test="typeCarDictKey!=null">
+            type_car_dict_key=#{typeCarDictKey},
         </if>
-        <if test="#{value}!=null">
+        <if test="value!=null">
             value=#{value},
         </if>
-        <if test="#{remark}!=null">
+        <if test="remark!=null">
             remark=#{remark},
         </if>
-        <if test="#{icon}!=null">
+        <if test="icon!=null">
             icon=#{icon},
         </if>
-        <if test="#{valueTypeCarDictKey}!=null">
+        <if test="valueTypeCarDictKey!=null">
             value_type_car_dict_key=#{valueTypeCarDictKey},
         </if>
-        <if test="#{introduction}!=null">
+        <if test="introduction!=null">
             introduction=#{introduction},
         </if>
         where id=#{id}
@@ -43,5 +43,17 @@
 
     <select id="getCarInforAttribById" resultType="course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribVo">
         select * from car_infor_attrib where id=#{id} limit 1
+    </select>
+
+    <select id="countCarInforIdTypeKey" resultType="int">
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and type_car_dict_key=#{typeCarDictKey} limit 1
+    </select>
+
+    <select id="countCarInforIdTypeKeyDiffId" resultType="int">
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and type_car_dict_key=#{typeCarDictKey} and id!=#{id} limit 1
+    </select>
+
+    <select id="listCarInforAttribByCarInforId" resultType="course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribVo">
+        select * from car_infor_attrib where car_infor_id=#{id} limit #{defaultMaxCountLimit}
     </select>
 </mapper>

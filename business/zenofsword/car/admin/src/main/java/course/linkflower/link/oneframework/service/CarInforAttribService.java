@@ -7,6 +7,8 @@ import course.linkflower.link.oneframework.dto.carinforattrib.CarInforAttribNoId
 import course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribVo;
 import io.micrometer.core.instrument.Meter;
 
+import java.util.List;
+
 public interface CarInforAttribService {
 
     Result<CarInforAttribVo> add(CarInforAttribNoIdDto carInforAttribNoIdDto);
@@ -16,4 +18,6 @@ public interface CarInforAttribService {
     Result<CarInforAttribVo> updateById(CarInforAttribDto carInforAttribDto);
 
     Result<CarInforAttribVo> getCarInforAttribById(IdDto idDto);
+
+    Result<List<CarInforAttribVo>> listCarInforAttribByCarInforId(IdDto idDto);
 }
