@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="course.linkflower.link.oneframework.dao.CarPatternMapper">
+    <insert id="add">
+        insert into car_pattern(car_brand_id, car_pattern, time_pattern, pattern_key)
+        values(#{carBrandId},#{carPattern},#{timePattern},#{pattern_key})
+    </insert>
+
+    <select id="countBrandPatternTimeKey" resultType="int">
+        select count(*) from car_pattern
+        where car_brand_id=#{carBrandId}, car_pattern=#{carPattern}, time_pattern=#{timePattern}, pattern_key=#{patternKey} limit 1
+    </select>
+
+    <delete id="deletedById">
+        delete from car_pattern where id=#{id}
+    </delete>
+
+    <select id="getCarPatternById" resultType="course.linkflower.link.oneframework.vo.carpattern.CarPatternVo">
+        select * from car_pattern where id=#{id}
+    </select>
+
+    <update id="updateById">
+        update car_pattern set car_pattern=#{}, car_brand_id=#{}, time_pattern=#{}, pattern_key=#{} where id=#{}
+    </update>
+
+    <select id="countBrandPatternTimeKeyDiffId" resultType="int">
+        select count(*) from car_pattern
+        where car_brand_id=#{carBrandId}, car_pattern=#{carPattern}, time_pattern=#{timePattern}, pattern_key=#{patternKey}, id!=#{id}
+        limit 1
+    </select>
+
+    <select id="listCarPatternByCarBrandId" resultType="course.linkflower.link.oneframework.vo.carpattern.CarPatternVo">
+        select * from car_pattern where car_brand_id=#{carBrandId} limit #{defaultMaxCountLimit}
+    </select>
+</mapper>

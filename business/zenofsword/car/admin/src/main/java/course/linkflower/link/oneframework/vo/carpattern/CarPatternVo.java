@@ -11,7 +11,7 @@ public class CarPatternVo {
     private String carPattern;
     private String carBrandId;
     private String timePattern;
-    private String pattern_key;
+    private String patternKey;
 
     public CarPatternVo loadFrom(CarPattern carPattern) {
         Long aLong=carPattern.getId();
@@ -24,7 +24,7 @@ public class CarPatternVo {
             carBrandId=String.valueOf(carPattern.getCarBrandId());
         }
         timePattern=carPattern.getTimePattern();
-        pattern_key=carPattern.getPattern_key();
+        patternKey=carPattern.getPatternKey();
         return this;
     }
 }

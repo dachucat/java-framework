@@ -9,7 +9,7 @@ public class CarPatternNoIdDto {
     private String carPattern;
     private String carBrandId;
     private String timePattern;
-    private String pattern_key;
+    private String patternKey;
 
     public CarPattern toModel() {
         CarPattern carPattern=new CarPattern();
@@ -18,7 +18,7 @@ public class CarPatternNoIdDto {
             carPattern.setCarBrandId(Long.valueOf(carBrandId));
         }
         carPattern.setTimePattern(timePattern);
-        carPattern.setPattern_key(pattern_key);
+        carPattern.setPatternKey(patternKey);
         return carPattern;
     }
 }

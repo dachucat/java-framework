@@ -15,5 +15,5 @@ public class CarPattern {
     private String carPattern;
     private Long carBrandId;
     private String timePattern;
-    private String Pattern_key;
+    private String PatternKey;
 }
