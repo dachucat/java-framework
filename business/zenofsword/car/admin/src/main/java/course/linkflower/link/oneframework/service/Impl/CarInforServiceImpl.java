@@ -9,6 +9,7 @@ import course.linkflower.link.oneframework.dto.CarInfor.CarInforNoIdDto;
 import course.linkflower.link.oneframework.model.CarInfor;
 import course.linkflower.link.oneframework.service.CarInforService;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,14 +37,16 @@ public class CarInforServiceImpl implements CarInforService {
 
     @Override
     public Result<CarInforVo> updateById(CarInforDto carInforDto) {
-        if (carInforMapper.countCarPatternIdDiffId(Long.parseLong(carInforDto.getCarPatternId()),
-                Long.parseLong(carInforDto.getId()))!=0){
-            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carPatternId"));
+        if (StringUtils.isNotEmpty(carInforDto.getCarPatternId())) {
+            if (carInforMapper.countCarPatternIdDiffId(Long.parseLong(carInforDto.getCarPatternId()),
+                    Long.parseLong(carInforDto.getId())) != 0) {
+                return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
+                        String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError, "carPatternId"));
+            }
         }
         CarInfor carInfor=carInforDto.toModel();
         carInforMapper.updateById(carInfor);
-        return Result.succeed(new CarInforVo().loadFrom(carInfor));
+        return Result.succeed(carInforMapper.getCarInforById(carInfor.getId()));
     }
 
     @Override

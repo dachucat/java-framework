@@ -25,7 +25,7 @@ public class UsedCarNoIdDto {
     private String vin;
     private String description;
     private String transferFeeKey;
-    private String anxuan;
+    private String anxuanKey;
     private String price;
     private String mileage;
 
@@ -54,7 +54,7 @@ public class UsedCarNoIdDto {
         usedCar.setVin(vin);
         usedCar.setDescription(description);
         usedCar.setTransferFeeKey(transferFeeKey);
-        usedCar.setAnxuan(anxuan);
+        usedCar.setAnxuanKey(anxuanKey);
         if (StringUtils.isNotEmpty(price)){
             usedCar.setPrice(Long.valueOf(price));
         }

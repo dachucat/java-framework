@@ -29,13 +29,13 @@ public class CarInforAttribServiceImpl implements CarInforAttribService {
 
     @Override
     public Result<CarInforAttribVo> updateById(CarInforAttribDto carInforAttribDto) {
-        if (carInforAttribMapper.countCarInforIdTypeKeyDiffId(Long.parseLong(carInforAttribDto.getCarInforId()),
-                carInforAttribDto.getTypeCarDictKey(),Long.parseLong(carInforAttribDto.getCarInforId()))!=0){
+        if (carInforAttribMapper.countCarInforIdAttribKeyValueDiffId(Long.parseLong(carInforAttribDto.getCarInforId()),
+                carInforAttribDto.getAttribKey(),Long.parseLong(carInforAttribDto.getValue()),Long.parseLong(carInforAttribDto.getId()))!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
                     String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
-                            "carInforId与typeCarDictKey建立了唯一索引，该索引的参数重复"));
+                            "carInforId与attribKey与value建立了唯一索引，该索引的参数重复"));
         }
-        CarInforAttrib carInforAttrib=carInforAttribDto.toModel(carInforAttribDto);
+        CarInforAttrib carInforAttrib=carInforAttribDto.toModel();
         carInforAttribMapper.updateById(carInforAttrib);
         return Result.succeed(carInforAttribMapper.getCarInforAttribById(Long.parseLong(carInforAttribDto.getId())));
     }
@@ -53,13 +53,22 @@ public class CarInforAttribServiceImpl implements CarInforAttribService {
 
     @Override
     public Result<CarInforAttribVo> add(CarInforAttribNoIdDto carInforAttribNoIdDto) {
-        if (carInforAttribMapper.countCarInforIdTypeKey(Long.parseLong(carInforAttribNoIdDto.getCarInforId()),
-                carInforAttribNoIdDto.getTypeCarDictKey())!=0){
-            return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
-                            "carInforId与typeCarDictKey建立了唯一索引，该索引的参数重复"));
+        if (StringUtils.isNotEmpty(carInforAttribNoIdDto.getValue())) {
+            if (carInforAttribMapper.countCarInforIdAttribKeyValue(Long.parseLong(carInforAttribNoIdDto.getCarInforId()),
+                    carInforAttribNoIdDto.getAttribKey(), Long.parseLong(carInforAttribNoIdDto.getValue())) != 0) {
+                return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
+                        String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
+                                "carInforId与attribKey与value建立了唯一索引，该索引的参数重复"));
+            }
+        }else {
+            if(carInforAttribMapper.countCarInforIdAttribKey(Long.parseLong(carInforAttribNoIdDto.getCarInforId()),
+                    carInforAttribNoIdDto.getAttribKey())!=0){
+                return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
+                        String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
+                                "carInforId与attribKey与value建立了唯一索引，该索引的参数重复"));
+            }
         }
-        CarInforAttrib carInforAttrib=carInforAttribNoIdDto.toModel(carInforAttribNoIdDto);
+        CarInforAttrib carInforAttrib=carInforAttribNoIdDto.toModel();
         carInforAttribMapper.add(carInforAttrib);
         return Result.succeed(new CarInforAttribVo().loadFrom(carInforAttrib));
     }

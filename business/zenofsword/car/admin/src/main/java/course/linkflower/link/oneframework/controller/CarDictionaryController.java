@@ -39,8 +39,8 @@ public class CarDictionaryController {
         return carDictionaryService.update(carDictionaryDto);
     }
 
-    @PostMapping("/listKeyByType")
-    public Result<List<CarDictionaryVo>> listKeyByType(@RequestBody TypeDto typeDto){
-        return carDictionaryService.listKeyByType(typeDto);
+    @PostMapping("/listCarDictionaryByType")
+    public Result<List<CarDictionaryVo>> listCarDictionaryByType(@RequestBody TypeDto typeDto){
+        return carDictionaryService.listCarDictionaryByType(typeDto);
     }
 }

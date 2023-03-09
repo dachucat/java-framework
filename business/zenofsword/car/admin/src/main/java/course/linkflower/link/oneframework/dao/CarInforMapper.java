@@ -3,10 +3,11 @@ package course.linkflower.link.oneframework.dao;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarInfor;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
+@Mapper
 public interface CarInforMapper extends SuperMapper<CarInforMapper> {
-    int countCarPatternId(long carPatternId);
+    int countCarPatternId(@Param("carPatternId") long carPatternId);
 
     int add(CarInfor carInfor);
 

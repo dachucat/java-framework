@@ -7,5 +7,5 @@ public class CarAdvantageVo {
     private String id;
     private String typeKey;
     private String value;
-    private String attrib;
+    private String attribKey;
 }

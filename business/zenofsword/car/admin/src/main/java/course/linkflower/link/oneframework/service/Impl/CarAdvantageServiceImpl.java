@@ -19,9 +19,9 @@ public class CarAdvantageServiceImpl implements CarAdvantageService {
 
     @Override
     public Result<CarAdvantageVo> add(CarAdvantageNoIdDto carAdvantageNoIdDto) {
-        if (carAdvantageMapper.countTypeKey(carAdvantageNoIdDto.getTypeKey())!=0){
+        if (carAdvantageMapper.countAttribKey(carAdvantageNoIdDto.getAttribKey())!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"type_key"));
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"attribKey建立了唯一索引"));
         }
         CarAdvantage carAdvantage=carAdvantageNoIdDto.toModel(carAdvantageNoIdDto);
         carAdvantageMapper.add(carAdvantage);
@@ -30,12 +30,12 @@ public class CarAdvantageServiceImpl implements CarAdvantageService {
 
     @Override
     public Result<CarAdvantageVo> getCarAdvantageById(IdDto idDto) {
-        return Result.succeed(getCarAdvantageById(Long.valueOf(idDto.getId())));
+        return Result.succeed(getCarAdvantageById(Long.parseLong(idDto.getId())));
     }
 
     @Override
     public Result<CarAdvantageVo> updateById(CarAdvantageDto carAdvantageDto) {
-        if (carAdvantageMapper.countTypeKeyDiffId(carAdvantageDto.getTypeKey(),Long.parseLong(carAdvantageDto.getId()))!=0){
+        if (carAdvantageMapper.countAttribKeyDiffId(carAdvantageDto.getAttribKey(),Long.parseLong(carAdvantageDto.getId()))!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
                     String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"type_key"));
         }

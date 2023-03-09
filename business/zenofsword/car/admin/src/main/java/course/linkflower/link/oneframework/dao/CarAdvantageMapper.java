@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface CarAdvantageMapper extends SuperMapper<CarAdvantageMapper> {
 
-    int countTypeKey(@Param("typeKey") String typeKey);
+    int countAttribKey(@Param("attribKey") String attribKey);
 
     int add(CarAdvantage carAdvantage);
 
@@ -20,5 +20,5 @@ public interface CarAdvantageMapper extends SuperMapper<CarAdvantageMapper> {
 
     int updateById(CarAdvantageDto carAdvantageDto);
 
-    int countTypeKeyDiffId(String typeKey, long id);
+    int countAttribKeyDiffId(@Param("attribKey") String attribKey,@Param("id") long id);
 }

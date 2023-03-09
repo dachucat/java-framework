@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="course.linkflower.link.oneframework.dao.CarInforAttribMapper">
-    <select id="countCarInforIdTypeKey" resultType="int">
-        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and type_car_dict_key={typeCarDictKey}
+    <select id="countCarInforIdAttribKeyValue" resultType="int">
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} , attrib_key={attribKey} , value=#{value} limit 1
     </select>
 
     <insert id="add">
-        insert into car_infor_attrib(car_infor_id, type_car_dict_key, value, remark, icon, value_type_car_dict_key, introduction)
-        values(#{carInforId},#{typeCarDictKey},#{value},#{remark},#{icon},#{valueTypeCarDictKey},#{introduction})
+        insert into car_infor_attrib(car_infor_id, attrib_key, value, remark, icon, value_type_key, introduction)
+        values(#{carInforId},#{attribKey},#{value},#{remark},#{icon},#{attribKey},#{introduction})
     </insert>
 
     <delete id="deleteById">
@@ -18,25 +18,25 @@
     <update id="updateById">
         update car_infor_attrib set
         <if test="carInforId!=null">
-            car_infor_id=#{carInforId},
+            car_infor_id=#{carInforId}
         </if>
-        <if test="typeCarDictKey!=null">
-            type_car_dict_key=#{typeCarDictKey},
+        <if test="attribKey!=null">
+            ,attrib_key=#{attribKey}
         </if>
         <if test="value!=null">
-            value=#{value},
+            ,value=#{value}
         </if>
         <if test="remark!=null">
-            remark=#{remark},
+            ,remark=#{remark}
         </if>
         <if test="icon!=null">
-            icon=#{icon},
+            ,icon=#{icon}
         </if>
-        <if test="valueTypeCarDictKey!=null">
-            value_type_car_dict_key=#{valueTypeCarDictKey},
+        <if test="valueTypeKey!=null">
+            ,value_type_key=#{valueTypeKey}
         </if>
         <if test="introduction!=null">
-            introduction=#{introduction},
+            ,introduction=#{introduction}
         </if>
         where id=#{id}
     </update>
@@ -46,14 +46,18 @@
     </select>
 
     <select id="countCarInforIdTypeKey" resultType="int">
-        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and type_car_dict_key=#{typeCarDictKey} limit 1
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and attrib_key=#{attribKey} limit 1
     </select>
 
-    <select id="countCarInforIdTypeKeyDiffId" resultType="int">
-        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and type_car_dict_key=#{typeCarDictKey} and id!=#{id} limit 1
+    <select id="countCarInforIdAttribKeyValueDiffId" resultType="int">
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and attrib_key=#{attribKey} and value=#{value} and id!=#{id} limit 1
     </select>
 
     <select id="listCarInforAttribByCarInforId" resultType="course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribVo">
         select * from car_infor_attrib where car_infor_id=#{id} limit #{defaultMaxCountLimit}
+    </select>
+
+    <select id="countCarInforIdAttribKey" resultType="int">
+        select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and attrib_key=#{attribKey} limit 1
     </select>
 </mapper>

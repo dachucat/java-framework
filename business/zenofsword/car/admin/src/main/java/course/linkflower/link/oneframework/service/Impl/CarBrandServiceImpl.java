@@ -26,7 +26,7 @@ public class CarBrandServiceImpl implements CarBrandService {
                 carBrandNoIdDto.getName())!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
                     String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
-                            "carCompanyId and name"));
+                            "carCompanyId与name建立了唯一索引"));
         }
         CarBrand carBrand= carBrandNoIdDto.toModel(carBrandNoIdDto);
         carBrandMapper.add(carBrand);
@@ -55,7 +55,7 @@ public class CarBrandServiceImpl implements CarBrandService {
         if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
                 carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
             return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId and Name"));
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId与name建立了唯一索引"));
         }
         CarBrand carBrand=carBrandDto.toModel(carBrandDto);
         carBrandMapper.update(carBrand);

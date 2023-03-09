@@ -9,7 +9,6 @@ public class CarInforNoIdDto {
     private String quotedPrice;
     private String guidePrice;
     private String carPatternId;
-
     public CarInfor toModel() {
         CarInfor carInfor=new CarInfor();
         if (StringUtils.isNotEmpty(quotedPrice)){

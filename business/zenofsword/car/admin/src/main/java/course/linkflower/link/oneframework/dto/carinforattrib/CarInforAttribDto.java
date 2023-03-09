@@ -7,25 +7,27 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 public class CarInforAttribDto {
     private String carInforId;
-    private String typeCarDictKey;
-    private Long value;
+    private String attribKey;
+    private String value;
     private String remark;
     private String icon;
-    private Byte valueTypeCarDictKey;
+    private String valueTypeKey;
     private String introduction;
     private String id;
-    public CarInforAttrib toModel(CarInforAttribDto carInforAttribDto) {
+    public CarInforAttrib toModel() {
         CarInforAttrib carInforAttrib=new CarInforAttrib();
-        if (StringUtils.isNotEmpty(carInforAttribDto.getCarInforId())){
+        if (StringUtils.isNotEmpty(carInforId)){
             carInforAttrib.setCarInforId(Long.valueOf(carInforId));
         }
-        carInforAttrib.setTypeCarDictKey(typeCarDictKey);
-        carInforAttrib.setValue(value);
+        carInforAttrib.setAttribKey(attribKey);
+        if (StringUtils.isNotEmpty(value)) {
+            carInforAttrib.setValue(Long.valueOf(value));
+        }
         carInforAttrib.setRemark(remark);
         carInforAttrib.setIcon(icon);
-        carInforAttrib.setValueTypeCarDictKey(valueTypeCarDictKey);
+        carInforAttrib.setValueTypeKey(valueTypeKey);
         carInforAttrib.setIntroduction(introduction);
-        if (StringUtils.isNotEmpty(carInforAttribDto.getId())){
+        if (StringUtils.isNotEmpty(id)){
             carInforAttrib.setId(Long.valueOf(id));
         }
         return carInforAttrib;

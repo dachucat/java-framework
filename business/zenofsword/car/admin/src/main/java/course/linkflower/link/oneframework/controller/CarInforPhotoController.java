@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,22 +24,22 @@ public class CarInforPhotoController {
     @Autowired
     private CarInforPhotoService carInforPhotoService;
     @PostMapping("/add")
-    public Result<CarInforPhotoVo> add(CarInforPhotoNoIdDto carInforPhotoNoIdDto){
+    public Result<CarInforPhotoVo> add(@RequestBody CarInforPhotoNoIdDto carInforPhotoNoIdDto){
         return carInforPhotoService.add(carInforPhotoNoIdDto);
     }
 
     @PostMapping("/deleteById")
-    public Result deleteById(IdDto idDto){
+    public Result deleteById(@RequestBody IdDto idDto){
         return carInforPhotoService.deleteById(idDto);
     }
 
     @PostMapping("/updateById")
-    public Result<CarInforPhotoVo> updateById(CarInforPhotoDto carInforPhotoDto){
+    public Result<CarInforPhotoVo> updateById(@RequestBody CarInforPhotoDto carInforPhotoDto){
         return carInforPhotoService.updateById(carInforPhotoDto);
     }
 
-    @PostMapping("/deleteById")
-    public Result<List<CarInforPhotoVo>> listPhotoById(IdDto idDto){
+    @PostMapping("/listPhotoById")
+    public Result<List<CarInforPhotoVo>> listPhotoById(@RequestBody IdDto idDto){
         return carInforPhotoService.listPhotoById(idDto);
     }
 }

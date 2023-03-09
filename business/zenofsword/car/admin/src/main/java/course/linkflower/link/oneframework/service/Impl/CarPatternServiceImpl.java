@@ -7,7 +7,7 @@ import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternDto;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternNoIdDto;
 import course.linkflower.link.oneframework.model.CarPattern;
-import course.linkflower.link.oneframework.service.CarPatternMapper;
+import course.linkflower.link.oneframework.dao.CarPatternMapper;
 import course.linkflower.link.oneframework.service.CarPatternService;
 import course.linkflower.link.oneframework.vo.carpattern.CarPatternVo;
 import org.springframework.beans.factory.annotation.Autowired;

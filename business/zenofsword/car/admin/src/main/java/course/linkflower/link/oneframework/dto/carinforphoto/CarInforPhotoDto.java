@@ -11,7 +11,7 @@ public class CarInforPhotoDto {
     private String photo;
     private byte ordering;
 
-    public CarInforPhoto toModel(CarInforPhotoNoIdDto carInforPhotoDto) {
+    public CarInforPhoto toModel() {
         CarInforPhoto carInforPhoto=new CarInforPhoto();
         if (StringUtils.isNotEmpty(id)){
             carInforPhoto.setId(Long.valueOf(id));

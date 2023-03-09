@@ -9,11 +9,11 @@ import java.util.Objects;
 @Data
 public class CarInforAttribVo {
     private String carInforId;
-    private String typeCarDictKey;
-    private Long value;
+    private String attribKey;
+    private String value;
     private String remark;
     private String icon;
-    private Byte valueTypeCarDictKey;
+    private String valueTypeKey;
     private String introduction;
     private String id;
 
@@ -22,13 +22,16 @@ public class CarInforAttribVo {
         if (Objects.nonNull(aLong)) {
             carInforId = String.valueOf(carInforAttrib.getCarInforId());
         }
-        typeCarDictKey=carInforAttrib.getTypeCarDictKey();
-        value=carInforAttrib.getValue();
+        attribKey=carInforAttrib.getAttribKey();
+        Long aLong1=carInforAttrib.getValue();
+        if (Objects.nonNull(aLong1)) {
+            value=String.valueOf(aLong1);
+        }
         remark=carInforAttrib.getRemark();
         icon=carInforAttrib.getIcon();
-        valueTypeCarDictKey=carInforAttrib.getValueTypeCarDictKey();
-        Long aLong1=carInforAttrib.getId();
-        if (Objects.nonNull(aLong1)){
+        valueTypeKey=carInforAttrib.getValueTypeKey();
+        Long aLong2=carInforAttrib.getId();
+        if (Objects.nonNull(aLong2)){
             id=String.valueOf(carInforAttrib.getId());
         }
         return this;

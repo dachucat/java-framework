@@ -8,14 +8,14 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@TableName("car_infor_attrib")
-public class CarInforAttrib {
-    private Long carInforId;
-    private String attribKey;
+@TableName("used_car_attrib")
+public class UsedCarAttrib {
+    private Long usedCarId;
+    private String typeKey;
     private Long value;
     private Long id;
     private String remark;
     private String icon;
-    private String valueTypeKey;
+    private Byte valueType;
     private String introduction;
 }

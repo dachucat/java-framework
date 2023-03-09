@@ -25,7 +25,7 @@ public class CarDictionaryServiceImpl implements CarDictionaryService {
     public Result<CarDictionaryVo> add(CarDictionaryNoIdDto carDictionaryNoIdDto) {
         if (carDictionaryMapper.countTypeValue(carDictionaryNoIdDto.getType(), carDictionaryNoIdDto.getValue()) != 0) {
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError, "type and value"));
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError, "type与value建立了唯一索引"));
         }
         if (StringUtils.isEmpty(carDictionaryNoIdDto.getOrdering())) {
             Integer integer=carDictionaryMapper.lastOrderingByType(carDictionaryNoIdDto.getType());
@@ -49,7 +49,7 @@ public class CarDictionaryServiceImpl implements CarDictionaryService {
     public Result<CarDictionaryVo> update(CarDictionaryDto carDictionaryDto) {
         if (carDictionaryMapper.countTypeValuediffId(carDictionaryDto.getType(), carDictionaryDto.getValue(), Long.parseLong(carDictionaryDto.getId())) != 0) {
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError, "type and value"));
+                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError, "type与value建立了唯一索引"));
         }
         if (StringUtils.isEmpty(carDictionaryDto.getOrdering())) {
             Integer integer = carDictionaryMapper.lastOrderingByType(carDictionaryDto.getType());
@@ -63,7 +63,7 @@ public class CarDictionaryServiceImpl implements CarDictionaryService {
     }
 
     @Override
-    public Result<List<CarDictionaryVo>> listKeyByType(TypeDto typeDto) {
-        return Result.succeed(carDictionaryMapper.listKeyByType(typeDto.getType(), DbConstant.DefaultMaxCountLimit));
+    public Result<List<CarDictionaryVo>> listCarDictionaryByType(TypeDto typeDto) {
+        return Result.succeed(carDictionaryMapper.listCarDictionaryByType(typeDto.getType(), DbConstant.DefaultMaxCountLimit));
     }
 }

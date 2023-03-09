@@ -3,6 +3,8 @@ package course.linkflower.link.oneframework.vo.carcompany;
 import course.linkflower.link.oneframework.model.CarCompany;
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 
 public class CarCompanyVo {
@@ -14,7 +16,10 @@ public class CarCompanyVo {
     private String icon;
 
     public CarCompanyVo loadFrom(CarCompany carCompany) {
-        id=String.valueOf(carCompany.getId());
+        Long aLong=carCompany.getId();
+        if (Objects.nonNull(aLong)) {
+            id = String.valueOf(carCompany.getId());
+        }
         name=carCompany.getName();
         address=carCompany.getAddress();
         email=carCompany.getEmail();

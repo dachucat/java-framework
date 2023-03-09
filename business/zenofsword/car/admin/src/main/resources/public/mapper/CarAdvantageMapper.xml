@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="course.linkflower.link.oneframework.dao.CarAdvantageMapper">
-    <select id="getCarAdvantageById" resultType="course.linkflower.link.oneframework.vo.caradvantage">
+    <select id="getCarAdvantageById" resultType="course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageVo">
         select * from car_advantage where id=#{id} limit 1
     </select>
 
@@ -10,8 +10,8 @@
         insert into car_advantage(type_key, value, attrib_key) values(#{typeKey},#{value},#{attribKey})
     </insert>
 
-    <select id="countTypeKey" parameterType="int">
-        select count(*) from car_advantage where id=#{id}
+    <select id="countAttribKey" resultType="int">
+        select count(*) from car_advantage where attrib_key=#{attribKey}
     </select>
 
     <delete id="deleteById">
@@ -19,14 +19,14 @@
     </delete>
 
     <update id="updateById">
-        update from car_advantage set
+        update car_advantage set
         <if test="typeKey">type_key=#{typeKey}</if>
         <if test="value">value=#{value}</if>
         <if test="attribKey">attrib_key=#{attribKey}</if>
         where id=#{id}
     </update>
 
-    <select id="countTypeKeyDiffId" resultType="int">
-        select count(*) from car_advantage where type_key=#{typeKey} and id!=#{id}
+    <select id="countAttribKeyDiffId" resultType="int">
+        select count(*) from car_advantage where attrib_key=#{attribKey} and id!=#{id}
     </select>
 </mapper>

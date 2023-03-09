@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="course.linkflower.link.oneframework.dao.DictionaryMapper">
+    <select id="countTypeValue" resultType="int">
+        select count(*) from dictionary where type=#{type} and value=#{value}
+    </select>
+
+    <insert id="add" parameterType="course.linkflower.link.oneframework.model.Dictionary" useGeneratedKeys="true" keyProperty="id">
+        insert into dictionary(value, `key`, type, ordering) values (#{value},#{key},#{type},#{ordering})
+    </insert>
+
+    <select id="getDictById" resultType="course.linkflower.link.oneframework.vo.dictionary.DictionaryVo">
+        select * from dictionary where id=#{id}
+    </select>
+
+    <select id="lastOrderingByType" resultType="Integer">
+        select ordering from dictionary where type=#{type} order by ordering desc limit 1
+    </select>
+
+    <delete id="deleteById">
+        delete from dictionary where id=#{id}
+    </delete>
+
+    <update id="update">
+        update dictionary set
+        <if test="value!=null">value=#{value},</if>
+        <if test="key!=null">`key`=#{key},</if>
+        <if test="type!=null">type=#{type},</if>
+        <if test="ordering!=null">ordering=#{ordering}</if>
+        where id=#{id}
+    </update>
+
+    <select id="countTypeValuediffId" resultType="int">
+        select count(*) from dictionary where type=#{type} and value=#{value} and id!=#{id}
+    </select>
+
+    <select id="listKeyByType" resultType="course.linkflower.link.oneframework.vo.dictionary.DictionaryVo">
+        select `key` from dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
+    </select>
+</mapper>

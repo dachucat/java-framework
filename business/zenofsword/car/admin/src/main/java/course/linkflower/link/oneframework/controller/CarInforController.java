@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,22 +22,22 @@ public class CarInforController {
     @Autowired
     private CarInforService carInforService;
     @PostMapping("/add")
-    public Result<CarInforVo> add(CarInforNoIdDto carInforNoIdDto){
+    public Result<CarInforVo> add(@RequestBody CarInforNoIdDto carInforNoIdDto){
         return carInforService.add(carInforNoIdDto);
     }
 
     @PostMapping("/deleteById")
-    public Result deleteById(IdDto idDto){
+    public Result deleteById(@RequestBody IdDto idDto){
         return carInforService.deleteById(idDto);
     }
 
     @PostMapping("/updateById")
-    public Result<CarInforVo> updateById(CarInforDto carInforDto){
+    public Result<CarInforVo> updateById(@RequestBody CarInforDto carInforDto){
         return carInforService.updateById(carInforDto);
     }
 
     @PostMapping("/getCarInforById")
-    public Result<CarInforVo> getCarInforById(IdDto idDto){
+    public Result<CarInforVo> getCarInforById(@RequestBody IdDto idDto){
         return carInforService.getCarInforById(idDto);
     }
 }

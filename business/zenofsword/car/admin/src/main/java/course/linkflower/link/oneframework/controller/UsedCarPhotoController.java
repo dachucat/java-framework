@@ -37,7 +37,7 @@ public class UsedCarPhotoController {
         return usedCarPhotoService.updateById(usedCarPhotoDto);
     }
 
-    @PostMapping("/deleteById")
+    @PostMapping("/listPhotoById")
     public Result<List<UsedCarPhotoVo>> listPhotoById(IdDto idDto){
         return usedCarPhotoService.listPhotoById(idDto);
     }

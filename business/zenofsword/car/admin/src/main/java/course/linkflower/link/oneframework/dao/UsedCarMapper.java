@@ -19,5 +19,7 @@ public interface UsedCarMapper extends SuperMapper<UsedCarMapper> {
 
     UsedCarVo getUsedCarById(@Param("id") long id);
 
-    List<UsedCarVo> listUsedCarByPostDate(@Param("postDate") Date postDate);
+    List<UsedCarVo> listUsedCarByPostDate(@Param("postDate") Date postDate,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+
+    int deleteById(@Param("id") long id);
 }

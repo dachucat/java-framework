@@ -13,17 +13,19 @@ import java.util.List;
 @Mapper
 public interface CarInforAttribMapper extends SuperMapper<CarInforAttribMapper> {
 
-    int countCarInforIdTypeKey(@Param("carInforId") long carInforId,@Param("typeCarDictKey") String typeCarDictKey);
+    int countCarInforIdAttribKeyValue(@Param("carInforId") long carInforId,@Param("attribKey") String attribKey,@Param("value") long value);
 
     int add(CarInforAttrib carInforAttrib);
 
     int deleteById(@Param("id") long id);
     
-    int countCarInforIdTypeKeyDiffId(@Param("carInforId") long carInforId,@Param("typeCarDictKey") String typeCarDictKey,@Param("id") long id);
+    int countCarInforIdAttribKeyValueDiffId(@Param("carInforId") long carInforId,@Param("attribKey") String attribKey,@Param("value") long value,@Param("id") long id);
     
     int updateById(CarInforAttrib carInforAttrib);
 
     CarInforAttribVo getCarInforAttribById(@Param("id") long id);
 
     List<CarInforAttribVo> listCarInforAttribByCarInforId(@Param("id") long id,@Param("defaultMaxCountLimit") int defaultMaxCountLimit);
+
+    int countCarInforIdAttribKey(@Param("carInforId") long carInforId,@Param("attribKey") String attribKey);
 }

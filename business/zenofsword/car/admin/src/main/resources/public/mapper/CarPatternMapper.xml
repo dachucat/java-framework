@@ -21,7 +21,8 @@
     </select>
 
     <update id="updateById">
-        update car_pattern set car_pattern=#{}, car_brand_id=#{}, time_pattern=#{}, pattern_key=#{} where id=#{}
+        update car_pattern set car_pattern=#{carPattern}, car_brand_id=#{carBrandId}, time_pattern=#{timePattern},
+        pattern_key=#{PatternKey} where id=#{id}
     </update>
 
     <select id="countBrandPatternTimeKeyDiffId" resultType="int">

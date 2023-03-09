@@ -26,5 +26,5 @@ public interface CarDictionaryMapper extends SuperMapper<CarDictionaryMapper> {
 
     int update(CarDictionary carDictionary);
 
-    List<CarDictionaryVo> listKeyByType(@Param("type") String type,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+    List<CarDictionaryVo> listCarDictionaryByType(@Param("type") String type,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
 }

@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.service.Impl;
 
+import course.linkflower.link.oneframework.common.constant.DbConstant;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.UsedCarMapper;
@@ -10,9 +11,10 @@ import course.linkflower.link.oneframework.model.UsedCar;
 import course.linkflower.link.oneframework.service.UsedCarService;
 import course.linkflower.link.oneframework.vo.usedcar.UsedCarVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class UsedCarServiceImpl implements UsedCarService {
     @Autowired
     private UsedCarMapper usedCarMapper;
@@ -43,6 +45,6 @@ public class UsedCarServiceImpl implements UsedCarService {
 
     @Override
     public Result<List<UsedCarVo>> listUsedCarByPostDate(PostDateDto postDateDto) {
-        return Result.succeed(usedCarMapper.listUsedCarByPostDate(postDateDto.getPostDate()));
+        return Result.succeed(usedCarMapper.listUsedCarByPostDate(postDateDto.getPostDate(), DbConstant.DefaultMaxCountLimit));
     }
 }

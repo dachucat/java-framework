@@ -16,5 +16,5 @@ public interface CarDictionaryService {
 
     Result<CarDictionaryVo> update(CarDictionaryDto carDictionaryDto);
 
-    Result<List<CarDictionaryVo>> listKeyByType(TypeDto typeDto);
+    Result<List<CarDictionaryVo>> listCarDictionaryByType(TypeDto typeDto);
 }

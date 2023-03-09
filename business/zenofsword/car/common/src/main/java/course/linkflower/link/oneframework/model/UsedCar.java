@@ -30,7 +30,7 @@ public class UsedCar {
     private String vin;
     private String description;
     private String transferFeeKey;
-    private String anxuan;
+    private String anxuanKey;
     private Long price;
     private Long mileage;
 }

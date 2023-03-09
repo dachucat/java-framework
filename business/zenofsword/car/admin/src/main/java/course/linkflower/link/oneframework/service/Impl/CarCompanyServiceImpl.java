@@ -2,6 +2,7 @@ package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.dao.CarCompanyMapper;
+import course.linkflower.link.oneframework.dto.carcompany.CarCompanyNoIdDto;
 import course.linkflower.link.oneframework.service.CarCompanyService;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
@@ -37,12 +38,12 @@ public class CarCompanyServiceImpl implements CarCompanyService {
     }
 
     @Override
-    public Result<CarCompanyVo> add(CarCompanyDto carCompanyDto) {
-        if(carCompanyMapper.countName(carCompanyDto.getName())!=0){
+    public Result<CarCompanyVo> add(CarCompanyNoIdDto carCompanyNoIdDto) {
+        if(carCompanyMapper.countName(carCompanyNoIdDto.getName())!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
                     String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"Name"));
         }
-        CarCompany carCompany= carCompanyDto.toModel(carCompanyDto);
+        CarCompany carCompany= carCompanyNoIdDto.toModel();
         carCompanyMapper.add(carCompany);
         return Result.succeed(new CarCompanyVo().loadFrom(carCompany));
     }

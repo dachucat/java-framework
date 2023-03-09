@@ -26,7 +26,7 @@ public class UsedCarVo {
     private String vin;
     private String description;
     private String transferFeeKey;
-    private String anxuan;
+    private String anxuanKey;
     private String price;
     private String mileage;
 
@@ -60,7 +60,7 @@ public class UsedCarVo {
         vin=usedCar.getVin();
         description=usedCar.getDescription();
         transferFeeKey=usedCar.getTransferFeeKey();
-        anxuan=usedCar.getAnxuan();
+        anxuanKey=usedCar.getAnxuanKey();
         Long aLong4=usedCar.getPrice();
         if (Objects.nonNull(aLong4)){
             price=String.valueOf(aLong4);

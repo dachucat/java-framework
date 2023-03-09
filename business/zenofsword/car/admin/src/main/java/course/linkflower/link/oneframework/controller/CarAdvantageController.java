@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,26 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequestMapping("/CarAdvantage")
 @RefreshScope
-public class CarAdvantageController {
+public class     CarAdvantageController {
     @Autowired
     private CarAdvantageService carAdvantageService;
     @PostMapping("/add")
-    public Result<CarAdvantageVo> add(CarAdvantageNoIdDto carAdvantageNoIdDto){
+    public Result<CarAdvantageVo> add(@RequestBody CarAdvantageNoIdDto carAdvantageNoIdDto){
         return carAdvantageService.add(carAdvantageNoIdDto);
     }
 
     @PostMapping("/getCarAdvantageById")
-    public Result<CarAdvantageVo> getCarAdvantageById(IdDto idDto){
+    public Result<CarAdvantageVo> getCarAdvantageById(@RequestBody IdDto idDto){
         return carAdvantageService.getCarAdvantageById(idDto);
     }
 
     @PostMapping("/deleteById")
-    public Result deleteById(IdDto idDto){
+    public Result deleteById(@RequestBody IdDto idDto){
         return carAdvantageService.deleteById(idDto);
     }
 
     @PostMapping("/updateById")
-    public Result<CarAdvantageVo> updateById(CarAdvantageDto carAdvantageDto){
+    public Result<CarAdvantageVo> updateById(@RequestBody CarAdvantageDto carAdvantageDto){
         return carAdvantageService.updateById(carAdvantageDto);
     }
 }

@@ -1,4 +1,4 @@
-ALTER TABLE car_dictionary ADD `ordering` bigint unsigned NOT NULL COMMENT '顺序';
+ALTER TABLE car_dictionary ADD `ordering` tinyint unsigned NOT NULL COMMENT '顺序';
 
 CREATE UNIQUE INDEX car_company_name_IDX USING BTREE ON car_company (name);
 

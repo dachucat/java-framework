@@ -1,6 +1,5 @@
-package course.linkflower.link.oneframework.service;
+package course.linkflower.link.oneframework.dao;
 
-import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarPattern;
 import course.linkflower.link.oneframework.vo.carpattern.CarPatternVo;
