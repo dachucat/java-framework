@@ -1,0 +1,9 @@
+errorCode:
+  package: course.linkflower.link.oneframework.members.constant
+  fileName: MemberErrorCodeConstant
+  format: java
+  baseCode: 1000
+  Namespace: member
+  codes:
+    - key: AccountAndPasswordError
+      msg: 账号或者密码错误
