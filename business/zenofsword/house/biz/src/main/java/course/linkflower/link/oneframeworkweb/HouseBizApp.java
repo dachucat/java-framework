@@ -1,4 +1,4 @@
-package course.linkflower.link.web;
+package course.linkflower.link.oneframeworkweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
