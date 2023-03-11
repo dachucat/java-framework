@@ -1,11 +1,14 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.caradvantage.CarAdvantageDto;
 import course.linkflower.link.oneframework.dto.caradvantage.CarAdvantageNoIdDto;
 import course.linkflower.link.oneframework.model.CarAdvantage;
 import course.linkflower.link.oneframework.service.CarAdvantageService;
+import course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageShowVo;
 import course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +44,10 @@ public class     CarAdvantageController {
     @PostMapping("/updateById")
     public Result<CarAdvantageVo> updateById(@RequestBody CarAdvantageDto carAdvantageDto){
         return carAdvantageService.updateById(carAdvantageDto);
+    }
+
+    @PostMapping("/search")
+    public Result<PageResult<CarAdvantageShowVo>> search(PageDto pageDto){
+        return carAdvantageService.search(pageDto);
     }
 }

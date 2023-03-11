@@ -1,10 +1,15 @@
 package course.linkflower.link.oneframework.service;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carcompany.CarCompanyDto;
 import course.linkflower.link.oneframework.dto.carcompany.CarCompanyNoIdDto;
+import course.linkflower.link.oneframework.vo.carcompany.CarCompanyShowVo;
 import course.linkflower.link.oneframework.vo.carcompany.CarCompanyVo;
+
+import java.util.List;
 
 public interface CarCompanyService {
 
@@ -15,4 +20,6 @@ public interface CarCompanyService {
     Result deleteById(IdDto idDto);
 
     Result<CarCompanyVo> getCarCompanyById(IdDto idDto);
+
+    PageResult<CarCompanyShowVo> search(PageDto pageDto);
 }

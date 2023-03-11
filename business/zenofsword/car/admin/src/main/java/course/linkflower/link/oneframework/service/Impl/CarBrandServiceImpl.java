@@ -2,17 +2,21 @@ package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.constant.DbConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarBrandMapper;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandDto;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandNoIdDto;
 import course.linkflower.link.oneframework.model.CarBrand;
 import course.linkflower.link.oneframework.service.CarBrandService;
+import course.linkflower.link.oneframework.vo.carbrand.CarBrandShowVo;
 import course.linkflower.link.oneframework.vo.carbrand.CarBrandVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,6 +46,15 @@ public class CarBrandServiceImpl implements CarBrandService {
     @Override
     public Result<List<CarBrandVo>> listNameByCarCompanyId(IdDto idDto) {
         return Result.succeed(carBrandMapper.listNameByCarCompanyId(Long.parseLong(idDto.getId()), DbConstant.DefaultMaxCountLimit));
+    }
+
+    @Override
+    public Result<PageResult<CarBrandShowVo>> search(PageDto pageDto) {
+        List<CarBrandShowVo> carBrandShowVos=carBrandMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        PageResult pageResult=new PageResult<>();
+        pageResult.setData(carBrandShowVos);
+        pageResult.setCount(carBrandMapper.countAll());
+        return Result.succeed(pageResult);
     }
 
     @Override

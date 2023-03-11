@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequestMapping("/picture")
 @RefreshScope
-public class PictureController {
+public class    PictureController {
     @Autowired
     PictureService pictureService;
     @PostMapping("/add")

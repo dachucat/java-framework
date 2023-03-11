@@ -29,4 +29,12 @@
     <select id="countAttribKeyDiffId" resultType="int">
         select count(*) from car_advantage where attrib_key=#{attribKey} and id!=#{id}
     </select>
+    
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageShowVo">
+        select * from car_advantage order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="Long">
+        select count(*) from car_advantage
+    </select>
 </mapper>

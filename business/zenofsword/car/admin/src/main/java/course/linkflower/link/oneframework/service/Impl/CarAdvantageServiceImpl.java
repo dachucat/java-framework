@@ -1,16 +1,22 @@
 package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarAdvantageMapper;
 import course.linkflower.link.oneframework.dto.caradvantage.CarAdvantageDto;
 import course.linkflower.link.oneframework.dto.caradvantage.CarAdvantageNoIdDto;
 import course.linkflower.link.oneframework.model.CarAdvantage;
 import course.linkflower.link.oneframework.service.CarAdvantageService;
+import course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageShowVo;
 import course.linkflower.link.oneframework.vo.caradvantage.CarAdvantageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CarAdvantageServiceImpl implements CarAdvantageService {
@@ -41,6 +47,16 @@ public class CarAdvantageServiceImpl implements CarAdvantageService {
         }
         carAdvantageMapper.updateById(carAdvantageDto);
         return Result.succeed(getCarAdvantageById(Long.parseLong(carAdvantageDto.getId())));
+    }
+
+    @Override
+    public Result<PageResult<CarAdvantageShowVo>> search(PageDto pageDto) {
+        List<CarAdvantageShowVo> carAdvantageShowVos=carAdvantageMapper.search(pageDto.getPage()*pageDto.getPageSize(),
+                pageDto.getPageSize());
+        PageResult<CarAdvantageShowVo> pageResult=new PageResult<>();
+        pageResult.setData(carAdvantageShowVos);
+        pageResult.setCount(carAdvantageMapper.countAll());
+        return Result.succeed(pageResult);
     }
 
     @Override

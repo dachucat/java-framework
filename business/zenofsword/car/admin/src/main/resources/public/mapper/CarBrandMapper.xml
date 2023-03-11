@@ -35,4 +35,12 @@
     <select id="countCompanyIdBrandNamediffId" resultType="int">
         select count(*) from car_brand where car_company_id=#{carCompanyId} and name=#{name} and id!=#{id} limit 1
     </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandShowVo">
+        select * from car_brand order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="Long">
+        select count(*) from car_brand
+    </select>
 </mapper>
