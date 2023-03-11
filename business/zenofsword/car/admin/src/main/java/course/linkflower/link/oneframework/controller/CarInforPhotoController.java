@@ -38,8 +38,8 @@ public class CarInforPhotoController {
         return carInforPhotoService.updateById(carInforPhotoDto);
     }
 
-    @PostMapping("/listPhotoById")
-    public Result<List<CarInforPhotoVo>> listPhotoById(@RequestBody IdDto idDto){
-        return carInforPhotoService.listPhotoById(idDto);
+    @PostMapping("/listPhotoByCarInforId")
+    public Result<List<CarInforPhotoVo>> listPhotoByCarInforId(@RequestBody IdDto idDto){
+        return carInforPhotoService.listPhotoByCarInforId(idDto);
     }
 }

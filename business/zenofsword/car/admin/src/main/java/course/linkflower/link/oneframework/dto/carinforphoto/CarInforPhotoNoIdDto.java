@@ -8,12 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 public class CarInforPhotoNoIdDto {
     private String carInforId;
     private String photo;
-    private byte ordering;
+    private Byte ordering;
 
     public CarInforPhoto toModel(CarInforPhotoNoIdDto carInforPhotoDto) {
         CarInforPhoto carInforPhoto=new CarInforPhoto();
         if (StringUtils.isNotEmpty(carInforId)){
-            carInforPhoto.setId(Long.valueOf(carInforId));
+            carInforPhoto.setCarInforId(Long.valueOf(carInforId));
         }
         carInforPhoto.setPhoto(photo);
         carInforPhoto.setOrdering(ordering);

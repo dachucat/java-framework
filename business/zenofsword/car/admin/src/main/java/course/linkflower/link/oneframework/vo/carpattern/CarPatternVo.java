@@ -2,6 +2,7 @@ package course.linkflower.link.oneframework.vo.carpattern;
 
 import course.linkflower.link.oneframework.model.CarPattern;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
@@ -22,6 +23,9 @@ public class CarPatternVo {
         Long aLong1=carPattern.getCarBrandId();
         if (Objects.nonNull(carBrandId)){
             carBrandId=String.valueOf(carPattern.getCarBrandId());
+        }
+        if (carPattern.getCarBrandId()!=null){
+            carBrandId= String.valueOf(carPattern.getCarBrandId());
         }
         timePattern=carPattern.getTimePattern();
         patternKey=carPattern.getPatternKey();

@@ -16,5 +16,5 @@ public interface CarInforPhotoService {
 
     Result<CarInforPhotoVo> updateById(CarInforPhotoDto carInforPhotoDto);
 
-    Result<List<CarInforPhotoVo>> listPhotoById(IdDto idDto);
+    Result<List<CarInforPhotoVo>> listPhotoByCarInforId(IdDto idDto);
 }

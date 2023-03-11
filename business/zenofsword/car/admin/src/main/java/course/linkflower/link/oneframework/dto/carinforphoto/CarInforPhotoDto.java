@@ -9,7 +9,7 @@ public class CarInforPhotoDto {
     private String id;
     private String carInforId;
     private String photo;
-    private byte ordering;
+    private Byte ordering;
 
     public CarInforPhoto toModel() {
         CarInforPhoto carInforPhoto=new CarInforPhoto();
@@ -17,7 +17,7 @@ public class CarInforPhotoDto {
             carInforPhoto.setId(Long.valueOf(id));
         }
         if (StringUtils.isNotEmpty(carInforId)){
-            carInforPhoto.setId(Long.valueOf(carInforId));
+            carInforPhoto.setCarInforId(Long.valueOf(carInforId));
         }
         carInforPhoto.setPhoto(photo);
         carInforPhoto.setOrdering(ordering);

@@ -10,7 +10,7 @@ public class CarInforPhotoVo {
     private String id;
     private String carInforId;
     private String photo;
-    private byte ordering;
+    private Byte ordering;
 
     public CarInforPhotoVo loadFrom(CarInforPhoto carInforPhoto) {
         Long aLong = carInforPhoto.getId();

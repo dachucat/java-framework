@@ -11,6 +11,7 @@ import course.linkflower.link.oneframework.service.CarInforPhotoService;
 import course.linkflower.link.oneframework.service.CarInforService;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
 import course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,20 +23,27 @@ public class CarInforPhotoServiceImpl implements CarInforPhotoService {
     private CarInforPhotoMapper carInforPhotoMapper;
     @Override
     public Result<CarInforPhotoVo> add(CarInforPhotoNoIdDto carInforPhotoNoIdDto) {
-        Byte aByte=carInforPhotoNoIdDto.getOrdering();
-        if (Objects.isNull(aByte)){
-            carInforPhotoNoIdDto.setOrdering(carInforPhotoMapper.lastOrderingByCarInforId(((byte)(Byte.parseByte(carInforPhotoNoIdDto.getCarInforId())+1))));
+        if (carInforPhotoNoIdDto.getOrdering()==null) {
+            Byte aByte=carInforPhotoMapper.lastOrderingByCarInforId(Long.parseLong(carInforPhotoNoIdDto.getCarInforId()));
+            if (aByte==null){
+                    aByte=1;
+            }
+            carInforPhotoNoIdDto.setOrdering(aByte);
         }
         CarInforPhoto carInforPhoto=carInforPhotoNoIdDto.toModel(carInforPhotoNoIdDto);
         carInforPhotoMapper.add(carInforPhoto);
         return Result.succeed(new CarInforPhotoVo().loadFrom(carInforPhoto));
+
     }
 
     @Override
     public Result<CarInforPhotoVo> updateById(CarInforPhotoDto carInforPhotoDto) {
+        if (carInforPhotoDto.getOrdering()==null) {
+
+        }
         CarInforPhoto carInforPhoto=carInforPhotoDto.toModel();
         carInforPhotoMapper.updateById(carInforPhoto);
-        return Result.succeed(new CarInforPhotoVo().loadFrom(carInforPhoto));
+        return Result.succeed(carInforPhotoMapper.getCarInforPhotoById(carInforPhoto.getId()));
     }
 
     @Override
@@ -45,7 +53,7 @@ public class CarInforPhotoServiceImpl implements CarInforPhotoService {
     }
 
     @Override
-    public Result<List<CarInforPhotoVo>> listPhotoById(IdDto idDto) {
-        return Result.succeed(carInforPhotoMapper.listPhotoById(Long.parseLong(idDto.getId())));
+    public Result<List<CarInforPhotoVo>> listPhotoByCarInforId(IdDto idDto) {
+        return Result.succeed(carInforPhotoMapper.listPhotoByCarInforId(Long.parseLong(idDto.getId())));
     }
 }

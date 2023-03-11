@@ -35,7 +35,7 @@ public class CarPatternServiceImpl implements CarPatternService {
 
     @Override
     public Result deleteById(IdDto idDto) {
-        carPatternMapper.deleteById(idDto.getId());
+        carPatternMapper.deleteById(Long.parseLong(idDto.getId()));
         return Result.succeed();
     }
 
@@ -50,7 +50,7 @@ public class CarPatternServiceImpl implements CarPatternService {
         }
             CarPattern carPattern=carPatternDto.toModel();
             carPatternMapper.updateById(carPattern);
-            return Result.succeed(new CarPatternVo().loadFrom(carPattern));
+            return Result.succeed(carPatternMapper.getCarPatternById(carPattern.getId()));
     }
 
     @Override

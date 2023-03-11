@@ -11,15 +11,15 @@ import java.util.List;
 @Mapper
 public interface CarPatternMapper extends SuperMapper<CarPatternMapper> {
 
-    int countBrandPatternTimeKey(@Param("CarBrandId") long CarBrandId,@Param("carPattern") String carPattern,
-                                 @Param("timePattern") String timePattern,@Param("PatternKey") String PatternKey);
+    int countBrandPatternTimeKey(@Param("carBrandId") long carBrandId,@Param("carPattern") String carPattern,
+                                 @Param("timePattern") String timePattern,@Param("patternKey") String patternKey);
 
     int add(CarPattern carPattern);
 
     int deleteById(@Param("id") long id);
 
-    int countBrandPatternTimeKeyDiffId(@Param("CarBrandId") long CarBrandId,@Param("carPattern") String carPattern,
-                                           @Param("timePattern") String timePattern,@Param("PatternKey") String PatternKey,
+    int countBrandPatternTimeKeyDiffId(@Param("carBrandId") long carBrandId,@Param("carPattern") String carPattern,
+                                           @Param("timePattern") String timePattern,@Param("patternKey") String patternKey,
                                            @Param("id") long id);
 
     int updateById(CarPattern carPattern);
