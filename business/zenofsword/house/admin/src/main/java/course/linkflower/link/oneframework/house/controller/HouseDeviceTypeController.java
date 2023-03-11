@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.house.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.house.dto.housedevicetype.AddHouseDeviceTypeDto;
 import course.linkflower.link.oneframework.house.dto.housedevicetype.DeleteHouseDeviceTypeDto;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("/housedevicetype")
+@RequestMapping(ApisConstant.ApiV1 + "/housedevicetype")
 @RefreshScope
 public class HouseDeviceTypeController {
     @Autowired

@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandDto;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/carBrand")
+@RequestMapping(ApisConstant.ApiV1 + "/carBrand")
 @RefreshScope
 public class CarBrandController {
 
