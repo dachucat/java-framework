@@ -24,3 +24,7 @@
         port:7010
         name:zenofsword.house-admin
         port:7011
+# 按照工具
+    node.js: https://nodejs.org/zh-cn/about/
+    admin: https://github.com/PanJiaChen/vue-element-admin
+    

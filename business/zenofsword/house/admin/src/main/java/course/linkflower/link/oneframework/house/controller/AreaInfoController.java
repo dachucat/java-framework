@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AreaInfoController {
     @Autowired
     AreaInfoService areaInfoService;
+
     @PostMapping("/add")
     public Result<AreaInfoVo> add(@RequestBody AddAreaInfoDto addAreaInfoDto) {
+
         return areaInfoService.addAreaInfo(addAreaInfoDto);
     }
 
