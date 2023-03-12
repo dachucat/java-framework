@@ -9,12 +9,12 @@
 
     <update id="update">
         update car_company set
-        <if test="name">name=#{name},</if>
-        <if test="address">address=#{address},</if>
-        <if test="email">email=#{email},</if>
-        <if test="phone">phone=#{phone},</if>
-        <if test="phone">phone=#{phone},</if>
-        <if test="icon">icon=#{icon}</if>
+        <set><if test="name">name=#{name}</if>
+            <if test="address">address=#{address}</if>
+            <if test="email">email=#{email}</if>
+            <if test="phone">phone=#{phone}</if>
+            <if test="phone">phone=#{phone}</if>
+            <if test="icon">icon=#{icon}</if></set>
         where id=#{id}
     </update>
     

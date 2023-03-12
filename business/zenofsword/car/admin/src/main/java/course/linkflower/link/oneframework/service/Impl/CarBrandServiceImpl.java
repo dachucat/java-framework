@@ -65,11 +65,11 @@ public class CarBrandServiceImpl implements CarBrandService {
 
     @Override
     public Result<CarBrandVo> update(CarBrandDto carBrandDto) {
-        if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
-                carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
-            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId与name建立了唯一索引"));
-        }
+//        if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
+//                carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
+//            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
+//                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId与name建立了唯一索引"));
+//        }
         CarBrand carBrand=carBrandDto.toModel(carBrandDto);
         carBrandMapper.update(carBrand);
         return Result.succeed(new CarBrandVo().loadFrom(carBrand));

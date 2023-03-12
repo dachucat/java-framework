@@ -1,10 +1,14 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carinforphoto.CarInforPhotoDto;
 import course.linkflower.link.oneframework.dto.carinforphoto.CarInforPhotoNoIdDto;
 import course.linkflower.link.oneframework.service.CarInforPhotoService;
+import course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoShowVo;
 import course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +22,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/CarInforPhoto")
+@RequestMapping(ApisConstant.ApiV1+"/carinforphoto")
 @RefreshScope
 public class CarInforPhotoController {
     @Autowired
@@ -28,18 +32,23 @@ public class CarInforPhotoController {
         return carInforPhotoService.add(carInforPhotoNoIdDto);
     }
 
-    @PostMapping("/deleteById")
+    @PostMapping("/deletebyid")
     public Result deleteById(@RequestBody IdDto idDto){
         return carInforPhotoService.deleteById(idDto);
     }
 
-    @PostMapping("/updateById")
+    @PostMapping("/updatebyid")
     public Result<CarInforPhotoVo> updateById(@RequestBody CarInforPhotoDto carInforPhotoDto){
         return carInforPhotoService.updateById(carInforPhotoDto);
     }
 
-    @PostMapping("/listPhotoByCarInforId")
+    @PostMapping("/listphotobycarinforid")
     public Result<List<CarInforPhotoVo>> listPhotoByCarInforId(@RequestBody IdDto idDto){
         return carInforPhotoService.listPhotoByCarInforId(idDto);
+    }
+
+    @PostMapping("/search")
+    public PageResult<CarInforPhotoShowVo> search(PageDto pageDto){
+        return carInforPhotoService.search(pageDto);
     }
 }

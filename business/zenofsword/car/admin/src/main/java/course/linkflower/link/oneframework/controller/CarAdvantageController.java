@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
 import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.PageResult;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("/CarAdvantage")
+@RequestMapping(ApisConstant.ApiV1+"/Caradvantage")
 @RefreshScope
 public class     CarAdvantageController {
     @Autowired
@@ -31,17 +32,17 @@ public class     CarAdvantageController {
         return carAdvantageService.add(carAdvantageNoIdDto);
     }
 
-    @PostMapping("/getCarAdvantageById")
+    @PostMapping("/getcaradvantagebyId")
     public Result<CarAdvantageVo> getCarAdvantageById(@RequestBody IdDto idDto){
         return carAdvantageService.getCarAdvantageById(idDto);
     }
 
-    @PostMapping("/deleteById")
+    @PostMapping("/deletebyid")
     public Result deleteById(@RequestBody IdDto idDto){
         return carAdvantageService.deleteById(idDto);
     }
 
-    @PostMapping("/updateById")
+    @PostMapping("/updatebyid")
     public Result<CarAdvantageVo> updateById(@RequestBody CarAdvantageDto carAdvantageDto){
         return carAdvantageService.updateById(carAdvantageDto);
     }

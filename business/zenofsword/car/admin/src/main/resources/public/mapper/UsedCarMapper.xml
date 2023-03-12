@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="course.linkflower.link.oneframework.dao.UsedCarMapper">
-    <insert id="add">
+    <insert id="add" keyProperty="id" useGeneratedKeys="true" parameterType="course.linkflower.link.oneframework.model.CarCompany">
         insert into used_car(car_infor_id, account_id, post_date, building_id, license_date, contacted_name, contacted_phone, status,
-        photo_count, nature_key, insurance_date, annual_inspection_date, vin, description, transfer_fee_key, anxuan_key, price, mileage)
+        photo_count, nature_key, insurance_date, annual_inspection_date, maintenance_key, compulsory_insurance_date, vin, description,
+        transfer_fee_key, anxuan_key, price, mileage)
         values(#{carInforId},#{accountId},#{postDate},#{buildingId},#{licenseDate},#{contactedName},#{contactedPhone},#{status},
-        #{photoCount},#{natureKey},#{insuranceDate},#{aunnualInspectionDate},#{vin},#{description},#{transferFeeKey},#{anxuanKey},#{price},
-        #{mileage})
+        #{photoCount},#{natureKey},#{insuranceDate},#{aunnualInspectionDate},#{maintenanceKey},#{compulsoryInsuranceDate},#{vin},
+        #{description},#{transferFeeKey},#{anxuanKey},#{price}, #{mileage})
     </insert>
 
     <delete id="deleteById">

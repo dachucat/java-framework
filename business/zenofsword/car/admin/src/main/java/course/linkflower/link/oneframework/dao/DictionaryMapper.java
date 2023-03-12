@@ -1,7 +1,9 @@
 package course.linkflower.link.oneframework.dao;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.Dictionary;
+import course.linkflower.link.oneframework.vo.dictionary.DictionaryShowVo;
 import course.linkflower.link.oneframework.vo.dictionary.DictionaryVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +18,7 @@ public interface DictionaryMapper extends SuperMapper<DictionaryMapper> {
 
     DictionaryVo getDictById(@Param("id") Long id);
 
-    Integer lastOrderingByType(@Param("type") String type);
+    Byte lastOrderingByType(@Param("type") String type);
 
     int deleteById(@Param("id") long id);
 
@@ -24,5 +26,9 @@ public interface DictionaryMapper extends SuperMapper<DictionaryMapper> {
 
     int update(Dictionary dictionary);
 
-    List<DictionaryVo> listKeyByType(@Param("type") String type, @Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+    List<DictionaryVo> listDictionaryByType(@Param("type") String type, @Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+
+    Long counAll();
+
+    List<DictionaryShowVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
 }

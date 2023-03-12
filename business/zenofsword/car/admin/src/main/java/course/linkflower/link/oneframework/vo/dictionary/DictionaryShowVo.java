@@ -3,7 +3,7 @@ package course.linkflower.link.oneframework.vo.dictionary;
 import lombok.Data;
 
 @Data
-public class DictionaryVo {
+public class DictionaryShowVo {
     private String id;
     private String value;
     private String key;

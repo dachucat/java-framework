@@ -4,9 +4,10 @@
 <mapper  namespace="course.linkflower.link.oneframework.dao.UsedCarPhotoMapper">
     <insert id="add">
         insert into used_car_photo(used_car_id, photo, ordering)
+        values(#{usedCarId}, #{photo}, #{ordering})
     </insert>
 
-    <select id="lastOrderingByUsedCarId" resultType="byte">
+    <select id="lastOrderingByUsedCarId" resultType="Byte">
         select ordering from used_car_photo where used_car_id=#{id} order by ordering desc limit 1
     </select>
 
@@ -16,16 +17,16 @@
 
     <update id="updateById">
         update used_car_photo set
-        <if test="usedcar_id!=null">
-            used_car_id=#{usedCarId}
+        <if test="usedCarId!=null">
+            used_car_id=#{usedCarId},
         </if>
         <if test="photo!=null">
-            photo=#{photo}
+            photo=#{photo},
         </if>
-        ordering=#{ordering} where id=#{id}
+           ordering=#{ordering} where id=#{id}
     </update>
 
-    <select id="listPhotoById" resultType="course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoVo">
+    <select id="listPhotoByUsedCarId" resultType="course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoVo">
         select * from used_car_photo where used_car_id=#{usedCarId} order by ordering asc limit 256
     </select>
 </mapper>

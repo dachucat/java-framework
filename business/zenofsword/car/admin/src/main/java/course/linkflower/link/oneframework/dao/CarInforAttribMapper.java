@@ -28,4 +28,8 @@ public interface CarInforAttribMapper extends SuperMapper<CarInforAttribMapper> 
     List<CarInforAttribVo> listCarInforAttribByCarInforId(@Param("id") long id,@Param("defaultMaxCountLimit") int defaultMaxCountLimit);
 
     int countCarInforIdAttribKey(@Param("carInforId") long carInforId,@Param("attribKey") String attribKey);
+
+    List<CarInforAttribVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
+
+    Long countAll();
 }

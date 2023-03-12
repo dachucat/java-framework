@@ -21,9 +21,12 @@ public class UsedCarPhotoServiceImpl implements UsedCarPhotoService {
 
     @Override
     public Result<UsedCarPhotoVo> add(UsedCarPhotoNoIdDto usedCarPhotoNoIdDto) {
-        Byte aByte=usedCarPhotoNoIdDto.getOrdering();
-        if (Objects.isNull(aByte)){
-            usedCarPhotoNoIdDto.setOrdering(usedCarPhotoMapper.lastOrderingByUsedCarId(((byte)(Byte.parseByte(usedCarPhotoNoIdDto.getUsedCarId())+1))));
+        if (usedCarPhotoNoIdDto.getOrdering()==null){
+            Byte aByte =usedCarPhotoMapper.lastOrderingByUsedCarId(Long.valueOf(usedCarPhotoNoIdDto.getUsedCarId()));
+            if (aByte==null){
+                aByte=0;
+            }
+            usedCarPhotoNoIdDto.setOrdering((byte) (aByte+1));
         }
         UsedCarPhoto usedCarPhoto=usedCarPhotoNoIdDto.toModel(usedCarPhotoNoIdDto);
         usedCarPhotoMapper.add(usedCarPhoto);
@@ -44,7 +47,7 @@ public class UsedCarPhotoServiceImpl implements UsedCarPhotoService {
     }
 
     @Override
-    public Result<List<UsedCarPhotoVo>> listPhotoById(IdDto idDto) {
-        return Result.succeed(usedCarPhotoMapper.listPhotoById(Long.parseLong(idDto.getId())));
+    public Result<List<UsedCarPhotoVo>> listPhotoByUsedCarId(IdDto idDto) {
+        return Result.succeed(usedCarPhotoMapper.listPhotoByUsedCarId(Long.parseLong(idDto.getId())));
     }
 }

@@ -1,10 +1,14 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.CarInfor.CarInforDto;
 import course.linkflower.link.oneframework.dto.CarInfor.CarInforNoIdDto;
 import course.linkflower.link.oneframework.service.CarInforService;
+import course.linkflower.link.oneframework.vo.carinfor.CarInforShowVo;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("/carInfor")
+@RequestMapping(ApisConstant.ApiV1+"/carinfor")
 @RefreshScope
 public class CarInforController {
     @Autowired
@@ -26,18 +30,23 @@ public class CarInforController {
         return carInforService.add(carInforNoIdDto);
     }
 
-    @PostMapping("/deleteById")
+    @PostMapping("/deletebyid")
     public Result deleteById(@RequestBody IdDto idDto){
         return carInforService.deleteById(idDto);
     }
 
-    @PostMapping("/updateById")
+    @PostMapping("/updatebyid")
     public Result<CarInforVo> updateById(@RequestBody CarInforDto carInforDto){
         return carInforService.updateById(carInforDto);
     }
 
-    @PostMapping("/getCarInforById")
+    @PostMapping("/getcarinforbyid")
     public Result<CarInforVo> getCarInforById(@RequestBody IdDto idDto){
         return carInforService.getCarInforById(idDto);
+    }
+
+    @PostMapping("/search")
+    public PageResult<CarInforShowVo> search(@RequestBody PageDto pageDto){
+        return carInforService.search(pageDto);
     }
 }

@@ -19,10 +19,12 @@
     </delete>
 
     <update id="updateById">
-        update car_advantage set
-        <if test="typeKey">type_key=#{typeKey}</if>
-        <if test="value">value=#{value}</if>
-        <if test="attribKey">attrib_key=#{attribKey}</if>
+        update car_advantage
+        <set>
+            <if test="typeKey">type_key=#{typeKey}</if>
+            <if test="value">value=#{value}</if>
+            <if test="attribKey">attrib_key=#{attribKey}</if>
+        </set>
         where id=#{id}
     </update>
 

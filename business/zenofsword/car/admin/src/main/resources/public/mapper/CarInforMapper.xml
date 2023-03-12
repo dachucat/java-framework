@@ -8,10 +8,12 @@
     </insert>
 
     <update id="updateById">
-        update car_infor set
-        <if test="quotedPrice">quoted_price=#{quotedPrice}</if>
-        <if test="guidePrice">guide_price=#{guidePrice}</if>
-        <if test="carPatternId">=car_pattern_id#{carPatternId}</if>
+        update car_infor
+        <set>
+            <if test="quotedPrice">quoted_price=#{quotedPrice}</if>
+            <if test="guidePrice">guide_price=#{guidePrice}</if>
+            <if test="carPatternId">=car_pattern_id#{carPatternId}</if>
+        </set>
         where id=#{id}
     </update>
 
@@ -29,5 +31,13 @@
 
     <select id="countCarPatternIdDiffId" resultType="int">
         select count(*) from car_infor where car_pattern_id=#{carPatternId} and id!=#{id}
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.carinfor.CarInforShowVo">
+        select * from car_infor order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="long">
+        select count(*) from car_infor
     </select>
 </mapper>

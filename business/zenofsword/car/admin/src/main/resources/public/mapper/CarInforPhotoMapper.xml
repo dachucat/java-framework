@@ -15,16 +15,18 @@
     </delete>
 
     <update id="updateById">
-        update car_infor_photo set
-        <if test="carInforId!=null">
-            car_infor_id=#{carInforId}
-        </if>
-        <if test="photo!=null">
-            ,photo=#{photo}
-        </if>
-        <if test="ordering">
-            ,ordering=#{ordering}
-        </if>
+        update car_infor_photo
+        <set>
+            <if test="carInforId!=null">
+                car_infor_id=#{carInforId}
+            </if>
+            <if test="photo!=null">
+                ,photo=#{photo}
+            </if>
+            <if test="ordering">
+                ,ordering=#{ordering}
+            </if>
+        </set>
         where id=#{id}
     </update>
 
@@ -34,5 +36,13 @@
 
     <select id="getCarInforPhotoById" resultType="course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoVo">
         select * from car_infor_photo where id=#{id} limit 1
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoShowVo">
+        select * from car_infor_photo order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="Long">
+        select count(*) from car_infor_photo
     </select>
 </mapper>

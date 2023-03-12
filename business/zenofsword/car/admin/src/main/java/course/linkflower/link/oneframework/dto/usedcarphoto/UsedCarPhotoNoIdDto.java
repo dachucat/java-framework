@@ -13,7 +13,7 @@ public class UsedCarPhotoNoIdDto {
     public UsedCarPhoto toModel(UsedCarPhotoNoIdDto usedCarPhotoNoIdDto) {
         UsedCarPhoto usedCarPhoto=new UsedCarPhoto();
         if (StringUtils.isNotEmpty(usedCarId)){
-            usedCarPhoto.setId(Long.valueOf(usedCarId));
+            usedCarPhoto.setUsedCarId(Long.valueOf(usedCarId));
         }
         usedCarPhoto.setPhoto(photo);
         usedCarPhoto.setOrdering(ordering);

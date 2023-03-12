@@ -1,6 +1,8 @@
 package course.linkflower.link.oneframework.service.Impl;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarInforPhotoMapper;
 import course.linkflower.link.oneframework.dto.CarInfor.CarInforNoIdDto;
@@ -10,6 +12,7 @@ import course.linkflower.link.oneframework.model.CarInforPhoto;
 import course.linkflower.link.oneframework.service.CarInforPhotoService;
 import course.linkflower.link.oneframework.service.CarInforService;
 import course.linkflower.link.oneframework.vo.carinfor.CarInforVo;
+import course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoShowVo;
 import course.linkflower.link.oneframework.vo.carinforphoto.CarInforPhotoVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +58,15 @@ public class CarInforPhotoServiceImpl implements CarInforPhotoService {
     @Override
     public Result<List<CarInforPhotoVo>> listPhotoByCarInforId(IdDto idDto) {
         return Result.succeed(carInforPhotoMapper.listPhotoByCarInforId(Long.parseLong(idDto.getId())));
+    }
+
+    @Override
+    public PageResult<CarInforPhotoShowVo> search(PageDto pageDto) {
+        List<CarInforPhotoShowVo> carInforPhotoShowVos=carInforPhotoMapper.search(pageDto.getPageSize()*pageDto.getPage(),
+                pageDto.getPageSize());
+        PageResult<CarInforPhotoShowVo> pageResult=new PageResult<>();
+        pageResult.setData(carInforPhotoShowVos);
+        pageResult.setCount(carInforPhotoMapper.countAll());
+        return pageResult;
     }
 }

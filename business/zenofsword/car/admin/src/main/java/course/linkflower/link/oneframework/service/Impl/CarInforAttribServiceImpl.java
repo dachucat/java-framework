@@ -2,13 +2,16 @@ package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.constant.DbConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarInforAttribMapper;
 import course.linkflower.link.oneframework.dto.carinforattrib.CarInforAttribDto;
 import course.linkflower.link.oneframework.dto.carinforattrib.CarInforAttribNoIdDto;
 import course.linkflower.link.oneframework.model.CarInforAttrib;
 import course.linkflower.link.oneframework.service.CarInforAttribService;
+import course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribShowVo;
 import course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,16 @@ public class CarInforAttribServiceImpl implements CarInforAttribService {
     public Result<List<CarInforAttribVo>> listCarInforAttribByCarInforId(IdDto idDto) {
         return Result.succeed(carInforAttribMapper.listCarInforAttribByCarInforId(Long.parseLong(idDto.getId()),
                 DbConstant.DefaultMaxCountLimit));
+    }
+
+    @Override
+    public PageResult<CarInforAttribShowVo> search(PageDto pageDto) {
+        List<CarInforAttribVo> carInforAttribVos=carInforAttribMapper.search(pageDto.getPageSize()*pageDto.getPage(),
+                pageDto.getPageSize());
+        PageResult pageResult=new PageResult<>();
+        pageResult.setData(carInforAttribVos);
+        pageResult.setCount(carInforAttribMapper.countAll());
+        return pageResult;
     }
 
     @Override
@@ -72,4 +85,5 @@ public class CarInforAttribServiceImpl implements CarInforAttribService {
         carInforAttribMapper.add(carInforAttrib);
         return Result.succeed(new CarInforAttribVo().loadFrom(carInforAttrib));
     }
+
 }

@@ -2,13 +2,16 @@ package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.constant.DbConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternDto;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternNoIdDto;
 import course.linkflower.link.oneframework.model.CarPattern;
 import course.linkflower.link.oneframework.dao.CarPatternMapper;
 import course.linkflower.link.oneframework.service.CarPatternService;
+import course.linkflower.link.oneframework.vo.carpattern.CarPatternShowVo;
 import course.linkflower.link.oneframework.vo.carpattern.CarPatternVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,5 +64,14 @@ public class CarPatternServiceImpl implements CarPatternService {
     @Override
     public Result<CarPatternVo> getCarPatternById(IdDto idDto) {
         return Result.succeed(carPatternMapper.getCarPatternById(Long.parseLong(idDto.getId())));
+    }
+
+    @Override
+    public PageResult<CarPatternShowVo> search(PageDto pageDto) {
+        List<CarPatternShowVo> carPatternShowVos=carPatternMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        PageResult<CarPatternShowVo> pageResult=new PageResult<>();
+        pageResult.setData(carPatternShowVos);
+        pageResult.setCount(carPatternMapper.countAll());
+        return pageResult;
     }
 }

@@ -1,5 +1,6 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.usedcar.PostDateDto;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/UsedCar")
+@RequestMapping(ApisConstant.ApiV1+"/usedcar")
 @RefreshScope
 public class UsedCarController {
     @Autowired
@@ -29,22 +30,22 @@ public class UsedCarController {
         return usedCarService.add(usedCarNoIdDto);
     }
 
-    @PostMapping("deleteById")
+    @PostMapping("deletebyid")
     public Result deleteById(@RequestBody IdDto idDto){
         return usedCarService.deleteById(idDto);
     }
 
-    @PostMapping("updateById")
+    @PostMapping("updatebyid")
     public Result<UsedCarVo> updateById(@RequestBody UsedCarDto usedCarDto){
         return usedCarService.updateById(usedCarDto);
     }
 
-    @PostMapping("getUsedCarById")
+    @PostMapping("getusedcarbyid")
     public Result<UsedCarVo> getUsedCarById(@RequestBody IdDto idDto){
         return usedCarService.getUsedCarById(idDto);
     }
 
-    @PostMapping("listUsedCarByPostDate")
+    @PostMapping("listusedcarbypostdate")
     public Result<List<UsedCarVo>> listUsedCarByPostDate(@RequestBody PostDateDto postDateDto){
         return usedCarService.listUsedCarByPostDate(postDateDto);
     }

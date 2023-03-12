@@ -23,11 +23,13 @@
     </delete>
 
     <update id="update">
-        update car_dictionary set
-        <if test="value!=null">value=#{value},</if>
-        <if test="key!=null">`key`=#{key},</if>
-        <if test="type!=null">type=#{type},</if>
-        <if test="ordering!=null">ordering=#{ordering}</if>
+        update car_dictionary
+        <set>
+            <if test="value!=null">value=#{value},</if>
+            <if test="key!=null">`key`=#{key},</if>
+            <if test="type!=null">type=#{type},</if>
+            <if test="ordering!=null">ordering=#{ordering}</if>
+        </set>
         where id=#{id}
     </update>
 
@@ -37,5 +39,13 @@
 
     <select id="listCarDictionaryByType" resultType="course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryVo">
         select * from car_dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
+    </select>
+
+    <select id="countAll" resultType="long">
+        select count(*) from car_dictionary
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryShowVo">
+        select * from car_dictionary order by id limit #{startCount}, #{pageSize}
     </select>
 </mapper>

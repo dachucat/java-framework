@@ -14,7 +14,7 @@
         select * from dictionary where id=#{id}
     </select>
 
-    <select id="lastOrderingByType" resultType="Integer">
+    <select id="lastOrderingByType" resultType="Byte">
         select ordering from dictionary where type=#{type} order by ordering desc limit 1
     </select>
 
@@ -23,11 +23,13 @@
     </delete>
 
     <update id="update">
-        update dictionary set
-        <if test="value!=null">value=#{value},</if>
-        <if test="key!=null">`key`=#{key},</if>
-        <if test="type!=null">type=#{type},</if>
-        <if test="ordering!=null">ordering=#{ordering}</if>
+        update dictionary
+        <set>
+            <if test="value!=null">value=#{value},</if>
+            <if test="key!=null">`key`=#{key},</if>
+            <if test="type!=null">type=#{type},</if>
+            <if test="ordering!=null">ordering=#{ordering}</if>
+        </set>
         where id=#{id}
     </update>
 
@@ -35,7 +37,9 @@
         select count(*) from dictionary where type=#{type} and value=#{value} and id!=#{id}
     </select>
 
-    <select id="listKeyByType" resultType="course.linkflower.link.oneframework.vo.dictionary.DictionaryVo">
-        select `key` from dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
+    <select id="listDictionaryByType" resultType="course.linkflower.link.oneframework.vo.dictionary.DictionaryVo">
+        select * from dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
     </select>
+
+
 </mapper>

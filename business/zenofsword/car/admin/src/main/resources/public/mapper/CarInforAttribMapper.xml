@@ -16,28 +16,30 @@
     </delete>
 
     <update id="updateById">
-        update car_infor_attrib set
-        <if test="carInforId!=null">
+        update car_infor_attrib
+        <set>
+            <if test="carInforId!=null">
             car_infor_id=#{carInforId}
         </if>
-        <if test="attribKey!=null">
-            ,attrib_key=#{attribKey}
-        </if>
-        <if test="value!=null">
-            ,value=#{value}
-        </if>
-        <if test="remark!=null">
-            ,remark=#{remark}
-        </if>
-        <if test="icon!=null">
-            ,icon=#{icon}
-        </if>
-        <if test="valueTypeKey!=null">
-            ,value_type_key=#{valueTypeKey}
-        </if>
-        <if test="introduction!=null">
-            ,introduction=#{introduction}
-        </if>
+            <if test="attribKey!=null">
+                ,attrib_key=#{attribKey}
+            </if>
+            <if test="value!=null">
+                ,value=#{value}
+            </if>
+            <if test="remark!=null">
+                ,remark=#{remark}
+            </if>
+            <if test="icon!=null">
+                ,icon=#{icon}
+            </if>
+            <if test="valueTypeKey!=null">
+                ,value_type_key=#{valueTypeKey}
+            </if>
+            <if test="introduction!=null">
+                ,introduction=#{introduction}
+            </if>
+        </set>
         where id=#{id}
     </update>
 
@@ -59,5 +61,13 @@
 
     <select id="countCarInforIdAttribKey" resultType="int">
         select count(*) from car_infor_attrib where car_infor_id=#{carInforId} and attrib_key=#{attribKey} limit 1
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.carinforattrib.CarInforAttribShowVo">
+        select * from car_infor_attrib order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="long">
+        select count(*) from car_infor_attrib
     </select>
 </mapper>

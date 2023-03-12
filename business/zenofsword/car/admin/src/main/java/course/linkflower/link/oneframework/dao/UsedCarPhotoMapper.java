@@ -13,11 +13,11 @@ public interface UsedCarPhotoMapper extends SuperMapper<UsedCarPhotoMapper> {
 
     int add(UsedCarPhoto usedCarPhoto);
 
-    byte lastOrderingByUsedCarId(@Param("id") long id);
+    Byte lastOrderingByUsedCarId(@Param("id") long id);
 
     int deleteById(@Param("id") long id);
 
     int updateById(UsedCarPhoto usedCarPhoto);
 
-    List<UsedCarPhotoVo> listPhotoById(@Param("usedCarId") long usedCarId);
+    List<UsedCarPhotoVo> listPhotoByUsedCarId(@Param("usedCarId") long usedCarId);
 }

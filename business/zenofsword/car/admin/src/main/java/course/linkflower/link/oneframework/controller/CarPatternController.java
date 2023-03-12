@@ -1,10 +1,14 @@
 package course.linkflower.link.oneframework.controller;
 
+import course.linkflower.link.oneframework.common.constant.ApisConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternDto;
 import course.linkflower.link.oneframework.dto.carpattern.CarPatternNoIdDto;
 import course.linkflower.link.oneframework.service.CarPatternService;
+import course.linkflower.link.oneframework.vo.carpattern.CarPatternShowVo;
 import course.linkflower.link.oneframework.vo.carpattern.CarPatternVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +22,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/carPattern")
+@RequestMapping(ApisConstant.ApiV1+"/carpattern")
 @RefreshScope
 public class CarPatternController {
     @Autowired
@@ -28,23 +32,28 @@ public class CarPatternController {
         return carPatternService.add(carPatternNoIdDto);
     }
 
-    @PostMapping("/deleteById")
+    @PostMapping("/deletebyid")
     public Result deleteById(@RequestBody IdDto idDto){
         return carPatternService.deleteById(idDto);
     }
 
-    @PostMapping("/updateById")
+    @PostMapping("/updatebyid")
     public Result<CarPatternVo> updateById(@RequestBody CarPatternDto carPatternDto){
         return carPatternService.updateById(carPatternDto);
     }
 
-    @PostMapping("/listCarPatternByCarBrandId")
+    @PostMapping("/listcarpatternbycarbrandid")
     public Result<List<CarPatternVo>> listCarPatternByCarBrandId(@RequestBody IdDto idDto){
         return carPatternService.listCarPatternByCarBrandId(idDto);
     }
 
-    @PostMapping("/getCarPatternById")
+    @PostMapping("/getcarpatternbyid")
     public Result<CarPatternVo> getCarPatternById(@RequestBody IdDto idDto){
         return carPatternService.getCarPatternById(idDto);
+    }
+
+    @PostMapping("/search")
+    public PageResult<CarPatternShowVo> search(@RequestBody PageDto pageDto){
+            return carPatternService.search(pageDto);
     }
 }

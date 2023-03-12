@@ -1,7 +1,9 @@
 package course.linkflower.link.oneframework.dao;
 
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarPattern;
+import course.linkflower.link.oneframework.vo.carpattern.CarPatternShowVo;
 import course.linkflower.link.oneframework.vo.carpattern.CarPatternVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -28,4 +30,8 @@ public interface CarPatternMapper extends SuperMapper<CarPatternMapper> {
                                                   @Param("defaultMaxCountLimit") int defaultMaxCountLimit);
 
     CarPatternVo getCarPatternById(@Param("id") long id);
+
+    List<CarPatternShowVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
+
+    Long countAll();
 }

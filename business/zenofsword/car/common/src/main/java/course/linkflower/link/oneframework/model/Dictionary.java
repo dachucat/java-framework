@@ -14,5 +14,5 @@ public class Dictionary {
     private String value;
     private String key;
     private String type;
-    private Long ordering;
+    private Byte ordering;
 }

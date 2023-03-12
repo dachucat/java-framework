@@ -13,7 +13,13 @@
     </delete>
 
     <update id="update">
-        update car_brand set icon=#{icon}, name=#{name}, car_company_id=#{carCompanyId} where id=#{id}
+        update car_brand
+        <set>
+            <if test="icon">icon=#{icon}</if>
+            <if test="name">name=#{name}</if>
+            <if test="carCompanyId">car_company_id=#{carCompanyId}</if>
+        </set>
+        where id=#{id}
     </update>
 
     <select id="getCarBrandById" resultType="course.linkflower.link.oneframework.vo.carbrand.CarBrandVo">

@@ -9,7 +9,7 @@ public class DictionaryNoIdDto {
     private String value;
     private String key;
     private String type;
-    private String ordering;
+    private Byte ordering;
 
     public Dictionary toModel(DictionaryNoIdDto dictionaryNoIdDto) {
         Dictionary dictionary=new Dictionary();
@@ -22,8 +22,8 @@ public class DictionaryNoIdDto {
         if (StringUtils.isNotEmpty(dictionaryNoIdDto.getType())) {
             dictionary.setType(dictionaryNoIdDto.getType());
         }
-        if (StringUtils.isNotEmpty(dictionaryNoIdDto.getOrdering())) {
-            dictionary.setOrdering(Long.valueOf(ordering));
+        if (ordering!=null) {
+            dictionary.setOrdering(Byte.valueOf(ordering));
         }
         return dictionary;
     }

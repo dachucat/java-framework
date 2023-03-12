@@ -21,8 +21,14 @@
     </select>
 
     <update id="updateById">
-        update car_pattern set car_pattern=#{carPattern}, car_brand_id=#{carBrandId}, time_pattern=#{timePattern},
-        pattern_key=#{PatternKey} where id=#{id}
+        update car_pattern set
+        <set>
+            <if test="carPattern">car_pattern=#{carPattern}</if>
+            <if test="carBrandId">car_brand_id=#{carBrandId}</if>
+            <if test="timePattern">time_pattern=#{timePattern}</if>
+            <if test="PatternKey">pattern_key=#{PatternKey}</if>
+        </set>
+        where id=#{id}
     </update>
 
     <select id="countBrandPatternTimeKeyDiffId" resultType="int">
@@ -33,5 +39,13 @@
 
     <select id="listCarPatternByCarBrandId" resultType="course.linkflower.link.oneframework.vo.carpattern.CarPatternVo">
         select * from car_pattern where car_brand_id=#{carBrandId} limit #{defaultMaxCountLimit}
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.carpattern.CarPatternShowVo">
+        select * from car_pattern order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="Long">
+        select count(*) from car_pattern
     </select>
 </mapper>

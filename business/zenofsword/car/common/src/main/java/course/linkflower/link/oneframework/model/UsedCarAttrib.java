@@ -11,11 +11,11 @@ import lombok.*;
 @TableName("used_car_attrib")
 public class UsedCarAttrib {
     private Long usedCarId;
-    private String typeKey;
+    private String attribKey;
     private Long value;
     private Long id;
     private String remark;
     private String icon;
-    private Byte valueType;
+    private String valueTypeKey;
     private String introduction;
 }

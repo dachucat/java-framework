@@ -1,12 +1,12 @@
-package course.linkflower.link.oneframework.vo.dictionary;
+package course.linkflower.link.oneframework.vo.CarDictionary;
 
 import lombok.Data;
 
 @Data
-public class DictionaryVo {
+public class CarDictionaryShowVo {
     private String id;
     private String value;
     private String key;
     private String type;
-    private Byte ordering;
+    private String ordering;
 }
