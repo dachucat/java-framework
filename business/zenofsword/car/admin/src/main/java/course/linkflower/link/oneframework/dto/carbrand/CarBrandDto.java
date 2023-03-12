@@ -2,6 +2,7 @@ package course.linkflower.link.oneframework.dto.carbrand;
 
 import course.linkflower.link.oneframework.model.CarBrand;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 @Data
 public class CarBrandDto {
@@ -13,9 +14,13 @@ public class CarBrandDto {
     public CarBrand toModel(CarBrandDto carBrandDto) {
         CarBrand carBrand=new CarBrand();
         carBrand.setIcon(icon);
-        carBrand.setId(Long.valueOf(id));
+        if (StringUtils.isNotEmpty(id)) {
+            carBrand.setId(Long.valueOf(id));
+        }
         carBrand.setName(name);
-        carBrand.setCarCompanyId(Long.parseLong(carCompanyId));
+        if (StringUtils.isNotEmpty(carCompanyId)) {
+            carBrand.setCarCompanyId(Long.parseLong(carCompanyId));
+        }
         return carBrand;
     }
 }

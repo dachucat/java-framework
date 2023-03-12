@@ -1,5 +1,11 @@
-ALTER TABLE car_dictionary ADD `ordering` bigint unsigned NOT NULL COMMENT '顺序';
+ALTER TABLE dictionary CHANGE `values` value varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
 
-CREATE UNIQUE INDEX car_company_name_IDX USING BTREE ON car_company (name);
+ALTER TABLE dictionary MODIFY COLUMN value varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
 
-ALTER TABLE car_dictionary CHANGE `values` value varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
+ALTER TABLE used_car_attrib CHANGE type_car_map_key attrib_key varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '这个属性类型在car_map中的key值';
+
+ALTER TABLE used_car_attrib MODIFY COLUMN attrib_key varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '这个属性类型在car_map中的key值';
+
+ALTER TABLE used_car_attrib CHANGE value_type value_type_key tinyint unsigned NOT NULL COMMENT '这个属性的值的类型在car_dictionary中对应的key值，可选项：key或者是数值';
+
+ALTER TABLE zenofsword_car.used_car_attrib MODIFY COLUMN value_type_key varchar(100) NOT NULL COMMENT '这个属性的值的类型在car_dictionary中对应的key值，可选项：key或者是数值';

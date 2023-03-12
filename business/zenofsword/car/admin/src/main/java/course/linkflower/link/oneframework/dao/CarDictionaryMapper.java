@@ -3,6 +3,7 @@ package course.linkflower.link.oneframework.dao;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.CarDictionary;
+import course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryShowVo;
 import course.linkflower.link.oneframework.vo.CarDictionary.CarDictionaryVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,5 +27,9 @@ public interface CarDictionaryMapper extends SuperMapper<CarDictionaryMapper> {
 
     int update(CarDictionary carDictionary);
 
-    List<CarDictionaryVo> listKeyByType(@Param("type") String type,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+    List<CarDictionaryVo> listCarDictionaryByType(@Param("type") String type,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
+
+    List<CarDictionaryShowVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
+
+    Long countAll();
 }

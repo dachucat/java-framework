@@ -2,17 +2,21 @@ package course.linkflower.link.oneframework.service.Impl;
 
 import course.linkflower.link.oneframework.common.constant.BaseErrorContst;
 import course.linkflower.link.oneframework.common.constant.DbConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.CarBrandMapper;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandDto;
 import course.linkflower.link.oneframework.dto.carbrand.CarBrandNoIdDto;
 import course.linkflower.link.oneframework.model.CarBrand;
 import course.linkflower.link.oneframework.service.CarBrandService;
+import course.linkflower.link.oneframework.vo.carbrand.CarBrandShowVo;
 import course.linkflower.link.oneframework.vo.carbrand.CarBrandVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,7 +30,7 @@ public class CarBrandServiceImpl implements CarBrandService {
                 carBrandNoIdDto.getName())!=0){
             return Result.of(null, BaseErrorContst.BaseErrorTimeParamDuplicateError,
                     String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,
-                            "carCompanyId and name"));
+                            "carCompanyId与name建立了唯一索引"));
         }
         CarBrand carBrand= carBrandNoIdDto.toModel(carBrandNoIdDto);
         carBrandMapper.add(carBrand);
@@ -45,6 +49,15 @@ public class CarBrandServiceImpl implements CarBrandService {
     }
 
     @Override
+    public Result<PageResult<CarBrandShowVo>> search(PageDto pageDto) {
+        List<CarBrandShowVo> carBrandShowVos=carBrandMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        PageResult pageResult=new PageResult<>();
+        pageResult.setData(carBrandShowVos);
+        pageResult.setCount(carBrandMapper.countAll());
+        return Result.succeed(pageResult);
+    }
+
+    @Override
     public Result<CarBrandVo> getCarBrandById(IdDto idDto) {
         return Result.succeed(carBrandMapper.getCarBrandById(Long.parseLong(idDto.getId())));
 
@@ -52,11 +65,11 @@ public class CarBrandServiceImpl implements CarBrandService {
 
     @Override
     public Result<CarBrandVo> update(CarBrandDto carBrandDto) {
-        if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
-                carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
-            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
-                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId and Name"));
-        }
+//        if (carBrandMapper.countCompanyIdBrandNamediffId(Long.parseLong(carBrandDto.getCarCompanyId()),
+//                carBrandDto.getName(),Long.parseLong(carBrandDto.getId()))!=0){
+//            return Result.of(null,BaseErrorContst.BaseErrorTimeParamDuplicateError,
+//                    String.format(BaseErrorContst.BaseMsgTimeParamsDuplicateError,"carCompanyId与name建立了唯一索引"));
+//        }
         CarBrand carBrand=carBrandDto.toModel(carBrandDto);
         carBrandMapper.update(carBrand);
         return Result.succeed(new CarBrandVo().loadFrom(carBrand));

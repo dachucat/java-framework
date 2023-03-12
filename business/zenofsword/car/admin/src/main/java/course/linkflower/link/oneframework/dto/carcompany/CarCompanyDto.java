@@ -2,6 +2,7 @@ package course.linkflower.link.oneframework.dto.carcompany;
 
 import course.linkflower.link.oneframework.model.CarCompany;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 @Data
 public class CarCompanyDto {
@@ -15,7 +16,9 @@ public class CarCompanyDto {
     public CarCompany toModel(CarCompanyDto carCompanyDto) {
         CarCompany carCompany=new CarCompany();
         carCompany.setAddress(address);
-        carCompany.setId(Long.valueOf(id));
+        if (StringUtils.isNotEmpty(id)) {
+            carCompany.setId(Long.valueOf(id));
+        }
         carCompany.setEmail(email);
         carCompany.setIcon(icon);
         carCompany.setName(name);
