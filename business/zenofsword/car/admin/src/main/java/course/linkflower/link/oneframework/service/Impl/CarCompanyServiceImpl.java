@@ -63,7 +63,7 @@ public class CarCompanyServiceImpl implements CarCompanyService {
 
     @Override
     public PageResult<CarCompanyShowVo> search(PageDto pageDto) {
-        List<CarCompanyShowVo> CarCompanyShowVos=carCompanyMapper.search(pageDto.getPage()* pageDto.getPageSize(),
+        List<CarCompanyShowVo> CarCompanyShowVos=carCompanyMapper.search((pageDto.getPage() - 1)* pageDto.getPageSize(),
                 pageDto.getPageSize());
         PageResult<CarCompanyShowVo> pageResult=new PageResult<>();
         pageResult.setData(CarCompanyShowVos);
