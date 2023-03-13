@@ -12,14 +12,16 @@
     </delete>
 
     <update id="updateById">
-        update used_car_attrib set
-        <if test="usedCarId">used_car_id=#{usedCarId}</if>
-        <if test="attribKey">, attrib_key=#{attribKey}</if>
-        <if test="value">, value=#{value}</if>
-        <if test="remark">, remark=#{remark}</if>
-        <if test="icon">icon=#{icon}, </if>
-        <if test="valueTypeKey">, value_type_key=#{valueTypeKey}</if>
-        <if test="introduction">, introduction=#{introduction}</if>
+        update used_car_attrib
+        <set>
+            <if test="usedCarId">used_car_id=#{usedCarId}</if>
+            <if test="attribKey">, attrib_key=#{attribKey}</if>
+            <if test="value">, value=#{value}</if>
+            <if test="remark">, remark=#{remark}</if>
+            <if test="icon">icon=#{icon}, </if>
+            <if test="valueTypeKey">, value_type_key=#{valueTypeKey}</if>
+            <if test="introduction">, introduction=#{introduction}</if>
+        </set>
         where id=#{id}
     </update>
 

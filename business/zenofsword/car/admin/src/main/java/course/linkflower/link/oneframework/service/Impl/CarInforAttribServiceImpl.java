@@ -32,7 +32,7 @@ public class CarInforAttribServiceImpl implements CarInforAttribService {
 
     @Override
     public PageResult<CarInforAttribShowVo> search(PageDto pageDto) {
-        List<CarInforAttribVo> carInforAttribVos=carInforAttribMapper.search(pageDto.getPageSize()*pageDto.getPage(),
+        List<CarInforAttribVo> carInforAttribVos=carInforAttribMapper.search(pageDto.getPageSize()*(pageDto.getPage()-1),
                 pageDto.getPageSize());
         PageResult pageResult=new PageResult<>();
         pageResult.setData(carInforAttribVos);

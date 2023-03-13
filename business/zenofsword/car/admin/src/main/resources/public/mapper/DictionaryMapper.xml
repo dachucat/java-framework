@@ -41,5 +41,11 @@
         select * from dictionary where type=#{type} order by ordering asc limit #{DefaultMaxCountLimit}
     </select>
 
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.dictionary.DictionaryShowVo">
+        select * from dictionary order by id limit #{startCount}, #{pageSize}
+    </select>
 
+    <select id="countAll" resultType="Long">
+        select count(*) from dictionary
+    </select>
 </mapper>

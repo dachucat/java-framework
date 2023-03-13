@@ -72,7 +72,7 @@ public class CarDictionaryServiceImpl implements CarDictionaryService {
 
     @Override
     public PageResult<CarDictionaryShowVo> search(PageDto pageDto) {
-        List<CarDictionaryShowVo> list=carDictionaryMapper.search(pageDto.getPage()* pageDto.getPageSize(),pageDto.getPageSize());
+        List<CarDictionaryShowVo> list=carDictionaryMapper.search((pageDto.getPage()-1)* pageDto.getPageSize(),pageDto.getPageSize());
         PageResult pageResult=new PageResult<>();
         pageResult.setData(list);
         pageResult.setCount(carDictionaryMapper.countAll());

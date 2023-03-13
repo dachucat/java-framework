@@ -28,7 +28,7 @@ public interface DictionaryMapper extends SuperMapper<DictionaryMapper> {
 
     List<DictionaryVo> listDictionaryByType(@Param("type") String type, @Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
 
-    Long counAll();
+    Long countAll();
 
     List<DictionaryShowVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
 }

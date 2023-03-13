@@ -1,11 +1,14 @@
 package course.linkflower.link.oneframework.controller;
 
 import course.linkflower.link.oneframework.common.constant.ApisConstant;
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dto.usedcarphoto.UsedCarPhotoDto;
 import course.linkflower.link.oneframework.dto.usedcarphoto.UsedCarPhotoNoIdDto;
 import course.linkflower.link.oneframework.service.UsedCarPhotoService;
+import course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoShowVo;
 import course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +45,10 @@ public class UsedCarPhotoController {
     @PostMapping("/listphotobyusedcarid")
     public Result<List<UsedCarPhotoVo>> listPhotoByUsedCarId(@RequestBody IdDto idDto){
         return usedCarPhotoService.listPhotoByUsedCarId(idDto);
+    }
+
+    @PostMapping("/search")
+    public PageResult<UsedCarPhotoShowVo> search(@RequestBody PageDto pageDto){
+        return usedCarPhotoService.search(pageDto);
     }
 }

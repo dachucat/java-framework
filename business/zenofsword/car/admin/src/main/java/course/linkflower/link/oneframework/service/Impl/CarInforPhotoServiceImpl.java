@@ -62,7 +62,7 @@ public class CarInforPhotoServiceImpl implements CarInforPhotoService {
 
     @Override
     public PageResult<CarInforPhotoShowVo> search(PageDto pageDto) {
-        List<CarInforPhotoShowVo> carInforPhotoShowVos=carInforPhotoMapper.search(pageDto.getPageSize()*pageDto.getPage(),
+        List<CarInforPhotoShowVo> carInforPhotoShowVos=carInforPhotoMapper.search(pageDto.getPageSize()*(pageDto.getPage()-1),
                 pageDto.getPageSize());
         PageResult<CarInforPhotoShowVo> pageResult=new PageResult<>();
         pageResult.setData(carInforPhotoShowVos);

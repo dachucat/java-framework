@@ -61,7 +61,7 @@ public class CarInforServiceImpl implements CarInforService {
 
     @Override
     public PageResult<CarInforShowVo> search(PageDto pageDto) {
-        List<CarInforShowVo> carInforShowVos=carInforMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        List<CarInforShowVo> carInforShowVos=carInforMapper.search((pageDto.getPage()-1)*pageDto.getPageSize(),pageDto.getPageSize());
         PageResult pageResult=new PageResult<>();
         pageResult.setData(carInforShowVos);
         pageResult.setCount(carInforMapper.countAll());

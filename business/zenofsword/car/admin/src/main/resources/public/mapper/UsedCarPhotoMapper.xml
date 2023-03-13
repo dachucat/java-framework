@@ -16,17 +16,27 @@
     </delete>
 
     <update id="updateById">
-        update used_car_photo set
-        <if test="usedCarId!=null">
-            used_car_id=#{usedCarId},
-        </if>
-        <if test="photo!=null">
-            photo=#{photo},
-        </if>
+        update used_car_photo
+        <set>
+            <if test="usedCarId!=null">
+                used_car_id=#{usedCarId},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo},
+            </if>
+        </set>
            ordering=#{ordering} where id=#{id}
     </update>
 
     <select id="listPhotoByUsedCarId" resultType="course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoVo">
         select * from used_car_photo where used_car_id=#{usedCarId} order by ordering asc limit 256
+    </select>
+
+    <select id="search" resultType="course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoShowVo">
+        select * from used_car_photo order by id limit #{startCount}, #{pageSize}
+    </select>
+
+    <select id="countAll" resultType="long">
+        select count(*) from used_car_photo
     </select>
 </mapper>

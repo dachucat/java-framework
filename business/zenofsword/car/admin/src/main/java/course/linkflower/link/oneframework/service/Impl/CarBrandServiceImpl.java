@@ -50,7 +50,7 @@ public class CarBrandServiceImpl implements CarBrandService {
 
     @Override
     public Result<PageResult<CarBrandShowVo>> search(PageDto pageDto) {
-        List<CarBrandShowVo> carBrandShowVos=carBrandMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        List<CarBrandShowVo> carBrandShowVos=carBrandMapper.search((pageDto.getPage()-1)*pageDto.getPageSize(),pageDto.getPageSize());
         PageResult pageResult=new PageResult<>();
         pageResult.setData(carBrandShowVos);
         pageResult.setCount(carBrandMapper.countAll());

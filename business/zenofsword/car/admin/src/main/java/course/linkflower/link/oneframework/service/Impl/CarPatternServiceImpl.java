@@ -68,7 +68,7 @@ public class CarPatternServiceImpl implements CarPatternService {
 
     @Override
     public PageResult<CarPatternShowVo> search(PageDto pageDto) {
-        List<CarPatternShowVo> carPatternShowVos=carPatternMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        List<CarPatternShowVo> carPatternShowVos=carPatternMapper.search((pageDto.getPage()-1)*pageDto.getPageSize(),pageDto.getPageSize());
         PageResult<CarPatternShowVo> pageResult=new PageResult<>();
         pageResult.setData(carPatternShowVos);
         pageResult.setCount(carPatternMapper.countAll());

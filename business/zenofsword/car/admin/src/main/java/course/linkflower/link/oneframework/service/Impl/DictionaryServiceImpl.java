@@ -67,10 +67,10 @@ public class DictionaryServiceImpl implements DictionaryService {
 
     @Override
     public PageResult<DictionaryShowVo> search(PageDto pageDto) {
-        List<DictionaryShowVo> list=dictionaryMapper.search(pageDto.getPage()*pageDto.getPageSize(),pageDto.getPageSize());
+        List<DictionaryShowVo> list=dictionaryMapper.search((pageDto.getPage()-1)*pageDto.getPageSize(),pageDto.getPageSize());
         PageResult<DictionaryShowVo> pageResult=new PageResult<>();
         pageResult.setData(list);
-        pageResult.setCount(dictionaryMapper.counAll());
+        pageResult.setCount(dictionaryMapper.countAll());
         return pageResult;
     }
 

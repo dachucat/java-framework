@@ -51,7 +51,7 @@ public class CarAdvantageServiceImpl implements CarAdvantageService {
 
     @Override
     public Result<PageResult<CarAdvantageShowVo>> search(PageDto pageDto) {
-        List<CarAdvantageShowVo> carAdvantageShowVos=carAdvantageMapper.search(pageDto.getPage()*pageDto.getPageSize(),
+        List<CarAdvantageShowVo> carAdvantageShowVos=carAdvantageMapper.search((pageDto.getPage()-1)*pageDto.getPageSize(),
                 pageDto.getPageSize());
         PageResult<CarAdvantageShowVo> pageResult=new PageResult<>();
         pageResult.setData(carAdvantageShowVos);

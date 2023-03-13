@@ -47,7 +47,7 @@ public class UsedCarAttribServiceImpl implements UsedCarAttribService {
 
     @Override
     public PageResult<UsedCarAttribVo> search(PageDto pageDto) {
-        List<UsedCarAttribVo> usedCarAttribVos=usedCarAttribMapper.search(pageDto.getPageSize()*pageDto.getPage(),pageDto.getPageSize());
+        List<UsedCarAttribVo> usedCarAttribVos=usedCarAttribMapper.search(pageDto.getPageSize()*(pageDto.getPage()-1),pageDto.getPageSize());
         PageResult<UsedCarAttribVo> pageResult = new PageResult<>();
         pageResult.setData(usedCarAttribVos);
         pageResult.setCount(usedCarAttribMapper.countAll());

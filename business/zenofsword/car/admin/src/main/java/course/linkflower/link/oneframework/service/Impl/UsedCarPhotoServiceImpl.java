@@ -1,13 +1,17 @@
 package course.linkflower.link.oneframework.service.Impl;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.common.dto.base.IdDto;
+import course.linkflower.link.oneframework.common.model.PageResult;
 import course.linkflower.link.oneframework.common.model.Result;
 import course.linkflower.link.oneframework.dao.UsedCarPhotoMapper;
 import course.linkflower.link.oneframework.dto.usedcarphoto.UsedCarPhotoDto;
 import course.linkflower.link.oneframework.dto.usedcarphoto.UsedCarPhotoNoIdDto;
 import course.linkflower.link.oneframework.model.UsedCarPhoto;
 import course.linkflower.link.oneframework.service.UsedCarPhotoService;
+import course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoShowVo;
 import course.linkflower.link.oneframework.vo.usedcarphoto.UsedCarPhotoVo;
+import jdk.internal.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +53,12 @@ public class UsedCarPhotoServiceImpl implements UsedCarPhotoService {
     @Override
     public Result<List<UsedCarPhotoVo>> listPhotoByUsedCarId(IdDto idDto) {
         return Result.succeed(usedCarPhotoMapper.listPhotoByUsedCarId(Long.parseLong(idDto.getId())));
+    }
+
+    @Override
+    public PageResult<UsedCarPhotoShowVo> search(PageDto pageDto) {
+        List<UsedCarPhotoShowVo> usedCarPhotoShowVos=usedCarPhotoMapper.search(pageDto.getPageSize()*(pageDto.getPage()-1),pageDto.getPageSize());
+        PageResult<UsedCarPhotoShowVo> pageResult=new PageResult<>(usedCarPhotoMapper.countAll(),0,usedCarPhotoShowVos);
+        return pageResult;
     }
 }

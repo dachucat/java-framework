@@ -1,7 +1,9 @@
 package course.linkflower.link.oneframework.dao;
 
+import course.linkflower.link.oneframework.common.dto.PageDto;
 import course.linkflower.link.oneframework.db.mapper.SuperMapper;
 import course.linkflower.link.oneframework.model.UsedCar;
+import course.linkflower.link.oneframework.vo.usedcar.UsedCarShowVo;
 import course.linkflower.link.oneframework.vo.usedcar.UsedCarVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,4 +24,8 @@ public interface UsedCarMapper extends SuperMapper<UsedCarMapper> {
     List<UsedCarVo> listUsedCarByPostDate(@Param("postDate") Date postDate,@Param("DefaultMaxCountLimit") int DefaultMaxCountLimit);
 
     int deleteById(@Param("id") long id);
+
+    List<UsedCarShowVo> search(@Param("startCount") int startCount,@Param("pageSize") int pageSize);
+
+    long countAll();
 }
